@@ -20,4 +20,6 @@
     <string name="DisStop">Discovery stopped</string>
     <string name="status">"Status: "</string>
     <string name="discover_new_devices">Discover new device</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
