@@ -13,6 +13,8 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -41,7 +43,7 @@ public class DeviceFragment extends Fragment {
      private final static String TYPE_IBOX = "IBOX";
      private final static String TYPE_STA = "STA";
      private final static String TYPE_BOILER = "BOILER";
-    public String msgR;
+    public String type=TYPE_IBOX;
 
 
      // TODO: Rename and change types of parameters
@@ -124,78 +126,105 @@ public class DeviceFragment extends Fragment {
         }
         else {
 
-            ButtonType.setOnClickListener(new View.OnClickListener(){
+            ButtonType.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v){
-                    if(dConnectedThread != null) //First check to make sure thread created
+                public void onClick(View v) {
+                    cambiarFragmentoEnBaseAVariable();
+                }});
+        }}
+
+
+                //  cambiarFragmentoEnBaseAVariable();
+                  /* if(dConnectedThread != null) //First check to make sure thread created
                         dConnectedThread.write("CARLOTILLA");
-                    Log.d("ConnectedThread", "CARLOTILLA");
+                    Log.d("ConnectedThread", "CARLOTILLA");*/
 
-                }
-            });
+
+                 public void cambiarFragmentoEnBaseAVariable() {
+                      if (type == TYPE_IBOX) {
+                          FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                          IboxFragment iboxFragment = new IboxFragment();
+                          FragmentTransaction transaction = fragmentManager.beginTransaction();
+                          transaction.replace(R.id.fragmentDev, iboxFragment);
+                        //  transaction.addToBackStack(null);
+                          transaction.commit();
+                      } else {
+                          if (type == TYPE_STA) {
+                              FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                              StaFragment staFragment = new StaFragment();
+                              FragmentTransaction transaction = fragmentManager.beginTransaction();
+                              transaction.replace(R.id.fragmentSta, staFragment);
+                            //  transaction.addToBackStack(null);
+                              transaction.commit();
+                          }else {
+                              if (type == TYPE_BOILER) {
+                                  FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                  BoilerFragment boilerFragment = new BoilerFragment();
+                                  FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                  transaction.replace(R.id.fragmentBoiler, boilerFragment);
+                               //   transaction.addToBackStack(null);
+                                  transaction.commit();
+                              }
+                          }
+                      }
+                  }
+                public AdapterView.OnItemClickListener mDeviceClickListener = new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                        if (!dConnectionBT.bluetoothAdapter.isEnabled()) {
+                            Toast.makeText(activity.getApplicationContext(), getString(R.string.BTnotOn), Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        //BluetoothStatus.setText(activity.getString(R.string.cConnet));
+                        // Get the device MAC address, which is the last 17 chars in the View
+                        String info = ((TextView) view).getText().toString();
+                        final String address = info.substring(info.length() - 17);
+                        final String name = info.substring(0, info.length() - 17);
+
+                        // Spawn a new thread to avoid blocking the GUI one
+                        new Thread() {
+                            @Override
+                            public void run() {
+                                boolean fail = false;
+
+                                BluetoothDevice device = dConnectionBT.bluetoothAdapter.getRemoteDevice(address);
+
+                                try {
+                                    dConnectionBT.bluetoothSocket = dConnectionBT.createBluetoothSocket(device);
+                                    dConnectedThread = new ConnectedThread(dConnectionBT.bluetoothSocket, dConnectionBT.mHandler);
+                                } catch (IOException e) {
+                                    fail = true;
+                                    Toast.makeText(activity.getApplicationContext(), getString(R.string.ErrSockCrea), Toast.LENGTH_SHORT).show();
+                                }
+                                // Establish the Bluetooth socket connection.
+                                try {
+                                    dConnectionBT.bluetoothSocket.connect();
+                                } catch (IOException e) {
+                                    try {
+                                        fail = true;
+                                        dConnectionBT.bluetoothSocket.close();
+                                        dConnectionBT.mHandler.obtainMessage(CONNECTING_STATUS, -1, -1)
+                                                .sendToTarget();
+                                    } catch (IOException e2) {
+                                        //insert code to deal with this
+                                        Toast.makeText(activity.getApplicationContext(), getString(R.string.ErrSockCrea), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                                if (!fail) {
+                                    dConnectionBT.connectedThread = new ConnectedThread(dConnectionBT.bluetoothSocket, dConnectionBT.mHandler);
+                                    dConnectionBT.connectedThread.start();
+
+                                    dConnectionBT.mHandler.obtainMessage(CONNECTING_STATUS, 1, -1, name)
+                                            .sendToTarget();
+                                }
+                            }
+                        }.start();
+                    }
+                };
+
+
             }
-
-    }
-     public AdapterView.OnItemClickListener mDeviceClickListener = new AdapterView.OnItemClickListener() {
-         @Override
-         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-             if(!dConnectionBT.bluetoothAdapter.isEnabled()) {
-                 Toast.makeText(activity.getApplicationContext(),getString(R.string.BTnotOn), Toast.LENGTH_SHORT).show();
-                 return;
-             }
-
-             //BluetoothStatus.setText(activity.getString(R.string.cConnet));
-             // Get the device MAC address, which is the last 17 chars in the View
-             String info = ((TextView) view).getText().toString();
-             final String address = info.substring(info.length() - 17);
-             final String name = info.substring(0,info.length() - 17);
-
-             // Spawn a new thread to avoid blocking the GUI one
-             new Thread()
-             {
-                 @Override
-                 public void run() {
-                     boolean fail = false;
-
-                     BluetoothDevice device = dConnectionBT.bluetoothAdapter.getRemoteDevice(address);
-
-                     try {
-                         dConnectionBT.bluetoothSocket = dConnectionBT.createBluetoothSocket(device);
-                         dConnectedThread = new ConnectedThread(dConnectionBT.bluetoothSocket, dConnectionBT.mHandler);
-                     } catch (IOException e) {
-                         fail = true;
-                         Toast.makeText(activity.getApplicationContext() ,getString(R.string.ErrSockCrea), Toast.LENGTH_SHORT).show();
-                     }
-                     // Establish the Bluetooth socket connection.
-                     try {
-                         dConnectionBT.bluetoothSocket.connect();
-                     } catch (IOException e) {
-                         try {
-                             fail = true;
-                             dConnectionBT.bluetoothSocket.close();
-                             dConnectionBT.mHandler.obtainMessage(CONNECTING_STATUS, -1, -1)
-                                     .sendToTarget();
-                         } catch (IOException e2) {
-                             //insert code to deal with this
-                             Toast.makeText(activity.getApplicationContext(), getString(R.string.ErrSockCrea), Toast.LENGTH_SHORT).show();
-                         }
-                     }
-                     if(!fail) {
-                         dConnectionBT.connectedThread = new ConnectedThread(dConnectionBT.bluetoothSocket, dConnectionBT.mHandler);
-                         dConnectionBT.connectedThread.start();
-
-                         dConnectionBT.mHandler.obtainMessage(CONNECTING_STATUS, 1, -1, name)
-                                 .sendToTarget();
-                     }
-                 }
-             }.start();
-         }
-     };
-
-
-
-
-}
 
 

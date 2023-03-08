@@ -3,14 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragmentDev"
-    tools:context=".DeviceFragment">
+    tools:context=".DeviceFragment"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/buttonType"
-        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="TYPE" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="652dp"
+        android:id="@+id/fragmentDev"
+        android:layout_marginTop="80dp"
+        tools:context=".DeviceFragment">
+
+    </FrameLayout>
 </FrameLayout>
+
+
