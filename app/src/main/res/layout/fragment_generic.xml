@@ -195,10 +195,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:orientation="horizontal">
-            <View
-                android:id="@+id/view2"
+            <TextView
+                android:id="@+id/terminalView"
                 android:layout_width="match_parent"
-                android:layout_height="70dp" />
+                android:layout_height="70dp"
+               />
 
 
         </LinearLayout>
@@ -206,7 +207,7 @@
 
 
         <Button
-            android:id="@+id/buttonTerminal"
+            android:id="@+id/terminalButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="DATOS" />

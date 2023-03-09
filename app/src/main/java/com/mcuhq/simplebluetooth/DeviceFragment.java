@@ -43,7 +43,7 @@ public class DeviceFragment extends Fragment {
      private final static String TYPE_IBOX = "IBOX";
      private final static String TYPE_STA = "STA";
      private final static String TYPE_BOILER = "BOILER";
-    public String type=TYPE_IBOX;
+    public String type="BOILER";
 
 
      // TODO: Rename and change types of parameters
@@ -153,7 +153,7 @@ public class DeviceFragment extends Fragment {
                               FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                               StaFragment staFragment = new StaFragment();
                               FragmentTransaction transaction = fragmentManager.beginTransaction();
-                              transaction.replace(R.id.fragmentSta, staFragment);
+                              transaction.replace(R.id.fragmentDev, staFragment);
                             //  transaction.addToBackStack(null);
                               transaction.commit();
                           }else {
@@ -161,7 +161,7 @@ public class DeviceFragment extends Fragment {
                                   FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                                   BoilerFragment boilerFragment = new BoilerFragment();
                                   FragmentTransaction transaction = fragmentManager.beginTransaction();
-                                  transaction.replace(R.id.fragmentBoiler, boilerFragment);
+                                  transaction.replace(R.id.fragmentDev, boilerFragment);
                                //   transaction.addToBackStack(null);
                                   transaction.commit();
                               }
