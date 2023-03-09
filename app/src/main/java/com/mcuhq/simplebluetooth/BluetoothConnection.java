@@ -165,20 +165,7 @@ public class BluetoothConnection {
             }
         }
     }
-    /*
-        final BroadcastReceiver blReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                String action = intent.getAction();
-                if(BluetoothDevice.ACTION_FOUND.equals(action)){
-                    BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                    // add the name to the list
-                    mBTArrayAdapter.add(device.getName() + "\n" + device.getAddress());
-                    mBTArrayAdapter.notifyDataSetChanged();
-                }
-            }
-        };
-    */
+
     public boolean listPairedDevices(View view){
 
         arrayAdapter = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1);
@@ -208,36 +195,6 @@ public class BluetoothConnection {
         }
         return  device.createRfcommSocketToServiceRecord(BT_MODULE_UUID);
     }
-    /*public Handler handler = new Handler(Looper.getMainLooper()) {
-        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-        @Override
-        public void handleMessage(Message msg) {
-            BluetoothConnection.this.handleMessage(msg);
-        }
-    };
-
-    public void handleMessage(Message msg) {
-        if (msg.what == MESSAGE_READ) {
-            String readMessage = null;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-                readMessage = new String((byte[]) msg.obj, StandardCharsets.UTF_8);
-            }
-            readBuffer.setText(readMessage);
-            //scheduleRxMessage(readMessage);
-
-            /*DeviceFragment fragment=new DeviceFragment();
-            Bundle args=new Bundle();
-            args.putString("msgtype",readMessage);
-            fragment.setArguments(args);
-        }
-
-        if (msg.what == CONNECTING_STATUS) {
-            if (msg.arg1 == 1)
-                BluetoothStatus.setText(context.getString(R.string.BTConnected) + msg.obj);
-            else
-                BluetoothStatus.setText(context.getString(R.string.BTconnFail));
-        }
-    }*/
 
     public void setupHandler() {
         mHandler = new Handler(Looper.getMainLooper()){
