@@ -59,7 +59,7 @@ public class BluetoothFragment extends Fragment  {
     private final static String TYPE_IBOX = "IBOX";
     private final static String TYPE_STA = "STA";
     private final static String TYPE_BOILER = "BOILER";
-    private String readMessage = null;
+    public static String readMessage = null;
 
     // GUI Components
     private TextView mBluetoothStatus;
@@ -170,7 +170,7 @@ public class BluetoothFragment extends Fragment  {
                         mBluetoothStatus.setText(getString(R.string.BTturOff));
                     }
                     else{
-                        mBluetoothStatus.setText("Ya estaba apagado");
+                        mBluetoothStatus.setText("DISENABLE");
                     }
                 }
             });
@@ -178,17 +178,19 @@ public class BluetoothFragment extends Fragment  {
             mListPairedDevicesBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v){
-                boolean responseListPairedDevices= mConnectionBT.listPairedDevices(v);
+                    listPairedDevices();
+             /*  boolean responseListPairedDevices= mConnectionBT.listPairedDevices(v);
                 if(mPairedDevices!=null){
                 if (responseListPairedDevices){
                     for (BluetoothDevice device:mPairedDevices)
                         mBTArrayAdapter.add(device.getName() + "\n" + device.getAddress());
                     Toast.makeText(activity.getApplicationContext(),getString(R.string.show_paired_devices), Toast.LENGTH_SHORT).show();
-
+                    Log.d("pairedDevices","add arrayAdapter");
                 } else{
                     Toast.makeText(activity.getApplicationContext(),getString(R.string.BTnotOn), Toast.LENGTH_SHORT).show();
                 }
-                }}
+                }*/
+                }
             });
 
             mDiscoverBtn.setOnClickListener(new View.OnClickListener(){
@@ -264,8 +266,22 @@ public class BluetoothFragment extends Fragment  {
             }.start();
         }
     };
+    private void listPairedDevices(){
+        mBTArrayAdapter.clear();
+        mPairedDevices = mBTAdapter.getBondedDevices();
+        if(mBTAdapter.isEnabled()) {
+            // put it's one to the adapter
+            for (BluetoothDevice device : mPairedDevices)
+                mBTArrayAdapter.add(device.getName() + "\n" + device.getAddress());
 
-
+            Toast.makeText(getActivity().getApplicationContext(), getString(R.string.show_paired_devices), Toast.LENGTH_SHORT).show();
+        }
+        else
+            Toast.makeText(getActivity().getApplicationContext(), getString(R.string.BTnotOn), Toast.LENGTH_SHORT).show();
+    }
+    public static String getReadMessage() {
+        return readMessage;
+    }
 
 }
 
