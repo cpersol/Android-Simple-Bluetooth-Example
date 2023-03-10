@@ -53,14 +53,14 @@ public class BluetoothConnection {
    public ConnectedThread connectedThread;
     public BluetoothSocket bluetoothSocket;
     private TextView ReadBuffer;
-    private String readMessage = null;
+    public static String readMessage = null;
     private static Context context;
     private TextView textView;
     private TextView readBuffer;
 
     private TabLayout tabLayout;
     private View view;
-    public String lastMessage;
+    public static String lastMessage;
 
     private final static String TYPE_IBOX = "IBOX";
     private final static String TYPE_STA = "STA";

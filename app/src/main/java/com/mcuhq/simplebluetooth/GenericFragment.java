@@ -12,11 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link GenericFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class GenericFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -28,6 +24,7 @@ public class GenericFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private BluetoothConnection mConnectionBT;
+
     private String readMessage = null;
     private Button mButtonTerminal;
     private TextView mTerminal;
@@ -56,6 +53,7 @@ public class GenericFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_generic, container, false);
         mConnectionBT = new BluetoothConnection(getActivity());
+        readMessage=BluetoothFragment.readMessage;
 
         //mHandler= new HandleBluetooth(this);
         return view;
@@ -67,7 +65,7 @@ public class GenericFragment extends Fragment {
         if (readMessage == null) {
             Log.d("msg", "readMessage null");
         }
-        informacionRecibida=mConnectionBT.lastMessage;
+        informacionRecibida=readMessage;
         mTerminal=view.findViewById(R.id.terminalView) ;
       //  mTerminal.setMovementMethod(new ScrollingMovementMethod());
        // mTerminal.setScrollbarFadingEnabled(false);
