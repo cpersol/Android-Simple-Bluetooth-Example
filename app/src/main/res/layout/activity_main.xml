@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/colorGris2"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -14,7 +15,8 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="68dp"
+        android:background="@color/colorAzul4"
         android:gravity="center"
         app:elevation="4dp">
 
@@ -28,8 +30,9 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary1"
+        android:layout_height="23dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorAzulOscuro"
         app:tabGravity="fill"
         app:tabIndicatorColor="@color/colorTabIndicator"
         app:tabMode="fixed"
