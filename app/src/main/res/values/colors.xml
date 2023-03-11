@@ -10,4 +10,9 @@
     <color name="colorTabTextWhiteTransparent">#99FFFFFF</color>
     <color name="colorTabIndicator">#ff6f00</color>
     <color name="colorOrange">#ff6f00</color>
+    <color name="colorAzulClaro">#82B1FF</color>
+    <color name="colorAzulOscuro">#01579B</color>
+    <color name="colorNegroClaro">#424242</color>
+    <color name="colorGris">#BDBDBD</color>
+    <color name="colorAzulClarito">#B3E5FC</color>
 </resources>
