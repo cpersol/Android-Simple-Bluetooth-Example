@@ -24,7 +24,7 @@
             android:id="@+id/imageView"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_bt" />
     </android.support.design.widget.AppBarLayout>
 
     <android.support.design.widget.TabLayout
