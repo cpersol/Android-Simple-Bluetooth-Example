@@ -91,16 +91,16 @@ public class MainActivity extends AppCompatActivity {
                 switch (tab.getPosition()){
                     case 0:
 
-                        imageView.setImageResource(R.drawable.ic_android);
+                        imageView.setImageResource(R.drawable.ic_bt);
                         Log.d("TAG1", "Posicion: " + tabLayout.getSelectedTabPosition() + " Titulo: " + tabActivity.getPageTitle(tabLayout.getSelectedTabPosition()));
 
                         break;
                     case 1:
-                        imageView.setImageResource(R.drawable.ic_battery_charging_30_black_24dp);
+                        imageView.setImageResource(R.drawable.ic_generic);
                         Log.d("TAG1", "Posicion: " + tabLayout.getSelectedTabPosition() + " Titulo: " + tabActivity.getPageTitle(tabLayout.getSelectedTabPosition()));
                         break;
                     case 2:
-                        imageView.setImageResource(R.drawable.ic_av_timer);
+                        imageView.setImageResource(R.drawable.ic_devices);
                         Log.d("TAG1", "Posicion: " + tabLayout.getSelectedTabPosition() + " Titulo: " + tabActivity.getPageTitle(tabLayout.getSelectedTabPosition()));
                         break;
                     default:
