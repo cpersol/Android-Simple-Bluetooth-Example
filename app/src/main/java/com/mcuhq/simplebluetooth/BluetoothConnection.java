@@ -50,8 +50,8 @@ public class BluetoothConnection {
     private static Set<BluetoothDevice> pairedDevices;
     private static ArrayAdapter<String> arrayAdapter;
    // private Handler handler;
-   public ConnectedThread connectedThread;
-    public BluetoothSocket bluetoothSocket;
+
+    public BluetoothSocket bluetoothSocket= null;
     private TextView ReadBuffer;
     public static String readMessage = null;
     private static Context context;
@@ -65,16 +65,12 @@ public class BluetoothConnection {
     private final static String TYPE_IBOX = "IBOX";
     private final static String TYPE_STA = "STA";
     private final static String TYPE_BOILER = "BOILER";
-
+    private MainActivity mainActivity;
     private Activity activity;
     protected Handler mHandler; // Our main handler that will receive callback notifications
     public ConnectedThread mConnectedThread; // bluetooth background worker thread to send and receive data
-    private BluetoothSocket mBTSocket = null; // bi-directional client-to-client data path
-
-    //private BluetoothSocket mBTSocket = null;
-    public BluetoothConnection (Activity activity) {
+    public BluetoothConnection () {
         this.context=context;
-        this.activity = activity;
         this.bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         lastMessage ="";
     }
@@ -93,6 +89,9 @@ public class BluetoothConnection {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             activity.startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
         }
+    }
+    public void setActivityInMainActivity(Activity act){
+        this.activity = act;
     }
     public  boolean bluetoothOn(){
         if (!bluetoothAdapter.isEnabled()) {
@@ -156,8 +155,9 @@ public class BluetoothConnection {
                 arrayAdapter.clear(); // clear items
                 bluetoothAdapter.startDiscovery();
                 Log.d("discover","buscancando devices");
-                act.registerReceiver(blReceiver, new IntentFilter(BluetoothDevice.ACTION_FOUND));
+               // act.registerReceiver(blReceiver, new IntentFilter(BluetoothDevice.ACTION_FOUND));
                 IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+//                this.activity.unregisterReceiver(blReceiver);
                 this.activity.registerReceiver(blReceiver, filter);
             }
             else{
@@ -193,7 +193,8 @@ public class BluetoothConnection {
         } catch (Exception e) {
             Log.e(TAG, "Could not create Insecure RFComm Connection",e);
         }
-        return  device.createRfcommSocketToServiceRecord(BT_MODULE_UUID);
+        bluetoothSocket = device.createRfcommSocketToServiceRecord(BT_MODULE_UUID);
+        return bluetoothSocket;
     }
 
     public void setupHandler() {
@@ -205,9 +206,9 @@ public class BluetoothConnection {
                 if(msg.what == MESSAGE_READ){
                     String readMessage = null;
                     readMessage = new String((byte[]) msg.obj, StandardCharsets.UTF_8);
-                    lastMessage=readMessage;
-                    Log.d("lastMessage",lastMessage);
-                    BluetoothBufferTextView.setText(lastMessage);
+                    Log.d("READ_MESSAGE",readMessage);
+                    BluetoothBufferTextView.setText(readMessage);
+                    MainActivity.getInstance().setBluetoothMessage(readMessage);
                 }
 
                 if(msg.what == CONNECTING_STATUS){

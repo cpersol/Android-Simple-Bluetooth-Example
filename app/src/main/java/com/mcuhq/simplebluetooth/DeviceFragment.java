@@ -95,7 +95,7 @@ public class DeviceFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_device, container, false);
-        dConnectionBT = new BluetoothConnection(getActivity());
+        dConnectionBT = MainActivity.getInstance().mConnectionBT;
         //mHandler= new HandleBluetooth(this);
         return view;
     }
@@ -114,10 +114,10 @@ public class DeviceFragment extends Fragment {
 
 
         // Ask for location permission if not already allowed
-        if(ContextCompat.checkSelfPermission(view.getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-            ActivityCompat.requestPermissions(new _BluetoothActivity(), new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+     //   if(ContextCompat.checkSelfPermission(view.getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+       //     ActivityCompat.requestPermissions(new _BluetoothActivity(), new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
 
-        dConnectionBT.setupHandler();
+        MainActivity.getInstance().mConnectionBT.setupHandler();
 
         if (mBTArrayAdapter == null) {
             // Device does not support Bluetooth
@@ -172,7 +172,7 @@ public class DeviceFragment extends Fragment {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                        if (!dConnectionBT.bluetoothAdapter.isEnabled()) {
+                        if (!MainActivity.getInstance().mConnectionBT.bluetoothAdapter.isEnabled()) {
                             Toast.makeText(activity.getApplicationContext(), getString(R.string.BTnotOn), Toast.LENGTH_SHORT).show();
                             return;
                         }
@@ -189,10 +189,10 @@ public class DeviceFragment extends Fragment {
                             public void run() {
                                 boolean fail = false;
 
-                                BluetoothDevice device = dConnectionBT.bluetoothAdapter.getRemoteDevice(address);
+                                BluetoothDevice device = MainActivity.getInstance().mConnectionBT.bluetoothAdapter.getRemoteDevice(address);
 
                                 try {
-                                    dConnectionBT.bluetoothSocket = dConnectionBT.createBluetoothSocket(device);
+                                    MainActivity.getInstance().mConnectionBT.bluetoothSocket = MainActivity.getInstance().mConnectionBT.createBluetoothSocket(device);
                                     dConnectedThread = new ConnectedThread(dConnectionBT.bluetoothSocket, dConnectionBT.mHandler);
                                 } catch (IOException e) {
                                     fail = true;
@@ -213,8 +213,8 @@ public class DeviceFragment extends Fragment {
                                     }
                                 }
                                 if (!fail) {
-                                    dConnectionBT.connectedThread = new ConnectedThread(dConnectionBT.bluetoothSocket, dConnectionBT.mHandler);
-                                    dConnectionBT.connectedThread.start();
+                                    dConnectionBT.mConnectedThread = new ConnectedThread(dConnectionBT.bluetoothSocket, dConnectionBT.mHandler);
+                                    dConnectionBT.mConnectedThread.start();
 
                                     dConnectionBT.mHandler.obtainMessage(CONNECTING_STATUS, 1, -1, name)
                                             .sendToTarget();

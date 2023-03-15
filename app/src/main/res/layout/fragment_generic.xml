@@ -48,55 +48,6 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="RX:"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/read_buffer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.9"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="&lt;Read Buffer>" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="Status:"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/bluetooth_status_generic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.9"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="&lt;Bluetooth Status>" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_weight="0.1"
                 android:ellipsize="end"
@@ -118,7 +69,7 @@
             android:layout_centerVertical="true"
             android:hint="Texto de entrada" />
         <Button
-            android:id="@+id/IntervalButton"
+            android:id="@+id/appKeyButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ENVIAR" />
@@ -152,7 +103,7 @@
             android:layout_centerVertical="true"
             android:hint="Texto de entrada" />
         <Button
-            android:id="@+id/IntervalButton"
+            android:id="@+id/deveuiButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ENVIAR" />
@@ -186,7 +137,7 @@
             android:layout_centerVertical="true"
             android:hint="Texto de entrada" />
         <Button
-            android:id="@+id/IntervalButton"
+            android:id="@+id/txButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ENVIAR" />
@@ -227,7 +178,7 @@
             android:id="@+id/terminalButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DATOS" />
+            android:text="RECIBIR DATOS" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -256,10 +207,10 @@
             android:hint="Texto de entrada" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/inputButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="OK" />
+            android:text="ENVIAR" />
 
 
 

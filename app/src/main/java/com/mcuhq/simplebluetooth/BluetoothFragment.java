@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Message;
@@ -22,6 +23,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -71,15 +73,15 @@ public class BluetoothFragment extends Fragment  {
     private ListView mDevicesListView;
     private CheckBox mLED1;
 
-    private BluetoothConnection mConnectionBT;
+
+
+
     private BluetoothAdapter mBTAdapter;
     private Set<BluetoothDevice> mPairedDevices;
     private ArrayAdapter<String> mBTArrayAdapter;
     private Message msg;
     private Activity activity;
-
-    private ConnectedThread mConnectedThread; // bluetooth background worker thread to send and receive data
-    private BluetoothSocket mBTSocket = null; // bi-directional client-to-client data path
+    private MainActivity Activity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,9 +93,8 @@ public class BluetoothFragment extends Fragment  {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_bluetooth, container, false);
-        mConnectionBT = new BluetoothConnection(getActivity());
+       // MainActivity.getInstance().mConnectionBT.setActivityInMainActivity(getActivity());
 
-        //mHandler= new HandleBluetooth(this);
         return view;
     }
 
@@ -104,19 +105,20 @@ public class BluetoothFragment extends Fragment  {
         if(readMessage == null){
             Log.d("msg", "readMessage null");
         }
+        MainActivity.getInstance().mConnectionBT.setActivityInMainActivity(getActivity());
 
-        //       activity.getSupportFragmentManager().setFragmentResult("key",bundle);
         mBluetoothStatus = view.findViewById(R.id.bluetooth_status);
-        mConnectionBT.setBluetoothStatus(mBluetoothStatus);
+        MainActivity.getInstance().mConnectionBT.setBluetoothStatus(mBluetoothStatus);
 
         mReadBuffer = view.findViewById(R.id.read_buffer);
-        mConnectionBT.setBluetoothBufferTextView(mReadBuffer);
+        MainActivity.getInstance().mConnectionBT.setBluetoothBufferTextView(mReadBuffer);
 
         mScanBtn = view.findViewById(R.id.scan);
         mOffBtn = view.findViewById(R.id.off);
         mDiscoverBtn = view.findViewById(R.id.discover);
         mListPairedDevicesBtn = view.findViewById(R.id.paired_btn);
         mLED1 = view.findViewById(R.id.checkbox_led_1);
+
 
         mBTArrayAdapter = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1);
 
@@ -129,9 +131,9 @@ public class BluetoothFragment extends Fragment  {
 
         // Ask for location permission if not already allowed
         if(ContextCompat.checkSelfPermission(view.getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-            ActivityCompat.requestPermissions(new _BluetoothActivity(), new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+           ActivityCompat.requestPermissions( getActivity(), new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
 
-        mConnectionBT.setupHandler();
+        MainActivity.getInstance().mConnectionBT.setupHandler();
 
 
         if (mBTArrayAdapter == null) {
@@ -144,15 +146,15 @@ public class BluetoothFragment extends Fragment  {
             mLED1.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
-                    if(mConnectedThread != null) //First check to make sure thread created
-                        mConnectedThread.write("CARLA");
+                    if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
+                        MainActivity.getInstance().mConnectionBT.mConnectedThread.write("CARLA");
                 }
             });
 
             mScanBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                  boolean responseOn =   mConnectionBT.bluetoothOn();
+                  boolean responseOn =   MainActivity.getInstance().mConnectionBT.bluetoothOn();
                   if(responseOn){
                       mBluetoothStatus.setText(getString(R.string.BTEnable));
                   }
@@ -165,7 +167,7 @@ public class BluetoothFragment extends Fragment  {
             mOffBtn.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
-                    boolean responseOff= mConnectionBT.bluetoothOff();
+                    boolean responseOff= MainActivity.getInstance().mConnectionBT.bluetoothOff();
                     if(responseOff){
                         mBluetoothStatus.setText(getString(R.string.BTturOff));
                     }
@@ -179,34 +181,16 @@ public class BluetoothFragment extends Fragment  {
                 @Override
                 public void onClick(View v){
                     listPairedDevices();
-             /*  boolean responseListPairedDevices= mConnectionBT.listPairedDevices(v);
-                if(mPairedDevices!=null){
-                if (responseListPairedDevices){
-                    for (BluetoothDevice device:mPairedDevices)
-                        mBTArrayAdapter.add(device.getName() + "\n" + device.getAddress());
-                    Toast.makeText(activity.getApplicationContext(),getString(R.string.show_paired_devices), Toast.LENGTH_SHORT).show();
-                    Log.d("pairedDevices","add arrayAdapter");
-                } else{
-                    Toast.makeText(activity.getApplicationContext(),getString(R.string.BTnotOn), Toast.LENGTH_SHORT).show();
-                }
-                }*/
                 }
             });
 
             mDiscoverBtn.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
-                    mConnectionBT.discover(mBTArrayAdapter, getActivity());
+                    MainActivity.getInstance().mConnectionBT.discover(mBTArrayAdapter, getActivity());
                 }
-
             });
         }
-
-
-
-
-
-
     }
 
 
@@ -214,12 +198,11 @@ public class BluetoothFragment extends Fragment  {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            if(!mConnectionBT.bluetoothAdapter.isEnabled()) {
+            if(!MainActivity.getInstance().mConnectionBT.bluetoothAdapter.isEnabled()) {
                 Toast.makeText(activity.getApplicationContext(), activity.getString(R.string.BTnotOn), Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            //BluetoothStatus.setText(activity.getString(R.string.cConnet));
             // Get the device MAC address, which is the last 17 chars in the View
             String info = ((TextView) view).getText().toString();
             final String address = info.substring(info.length() - 17);
@@ -232,23 +215,24 @@ public class BluetoothFragment extends Fragment  {
                 public void run() {
                     boolean fail = false;
 
-                    BluetoothDevice device = mConnectionBT.bluetoothAdapter.getRemoteDevice(address);
+                    BluetoothDevice device = MainActivity.getInstance().mConnectionBT.bluetoothAdapter.getRemoteDevice(address);
 
                     try {
-                        mConnectionBT.bluetoothSocket = mConnectionBT.createBluetoothSocket(device);
-                        mConnectedThread = new ConnectedThread(mConnectionBT.bluetoothSocket, mConnectionBT.mHandler);
+                        MainActivity.getInstance().mConnectionBT.bluetoothSocket =  MainActivity.getInstance().mConnectionBT.createBluetoothSocket(device);
+                        MainActivity.getInstance().mConnectionBT.mConnectedThread = new ConnectedThread( MainActivity.getInstance().mConnectionBT.bluetoothSocket,  MainActivity.getInstance().mConnectionBT.mHandler);
+
                     } catch (IOException e) {
                         fail = true;
                         Toast.makeText(activity.getApplicationContext() ,getString(R.string.ErrSockCrea), Toast.LENGTH_SHORT).show();
                     }
                     // Establish the Bluetooth socket connection.
                     try {
-                        mConnectionBT.bluetoothSocket.connect();
+                        MainActivity.getInstance().mConnectionBT.bluetoothSocket.connect();
                     } catch (IOException e) {
                         try {
                             fail = true;
-                            mConnectionBT.bluetoothSocket.close();
-                            mConnectionBT.mHandler.obtainMessage(CONNECTING_STATUS, -1, -1)
+                            MainActivity.getInstance().mConnectionBT.bluetoothSocket.close();
+                            MainActivity.getInstance().mConnectionBT.mHandler.obtainMessage(CONNECTING_STATUS, -1, -1)
                                     .sendToTarget();
                         } catch (IOException e2) {
                             //insert code to deal with this
@@ -256,10 +240,11 @@ public class BluetoothFragment extends Fragment  {
                         }
                     }
                     if(!fail) {
-                        mConnectionBT.connectedThread = new ConnectedThread(mConnectionBT.bluetoothSocket, mConnectionBT.mHandler);
-                        mConnectionBT.connectedThread.start();
+                        MainActivity.getInstance().mConnectionBT.mConnectedThread = new ConnectedThread(
+                                MainActivity.getInstance().mConnectionBT.bluetoothSocket, MainActivity.getInstance().mConnectionBT.mHandler);
+                        MainActivity.getInstance().mConnectionBT.mConnectedThread.start();
 
-                        mConnectionBT.mHandler.obtainMessage(CONNECTING_STATUS, 1, -1, name)
+                        MainActivity.getInstance().mConnectionBT.mHandler.obtainMessage(CONNECTING_STATUS, 1, -1, name)
                                 .sendToTarget();
                     }
                 }
@@ -279,8 +264,10 @@ public class BluetoothFragment extends Fragment  {
         else
             Toast.makeText(getActivity().getApplicationContext(), getString(R.string.BTnotOn), Toast.LENGTH_SHORT).show();
     }
-    public static String getReadMessage() {
-        return readMessage;
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Activity = (MainActivity) context;
     }
 
 }

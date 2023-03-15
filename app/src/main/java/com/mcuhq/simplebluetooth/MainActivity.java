@@ -44,28 +44,38 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
     private ImageView imageView;
+    public BluetoothConnection mConnectionBT;
     private TabLayout tabLayout;
     private AppBarLayout appBarLayout;
     private ViewPager viewPager;
     private TabActivity tabActivity;
     private ArrayAdapter<String> mBTArrayAdapter;
     private DeviceFragment mDeviceFragment;
-    private IboxFragment IboxFragment;
-    private StaFragment StaFragment;
-    private BoilerFragment BoilerFragment;
 
+    private IboxFragment iboxFragment;
+    private GenericFragment genericFragment;
+    private StaFragment staFragment;
+    private DeviceFragment deviceFragment;
+    private BluetoothFragment bluetoothFragment;
+    private BoilerFragment boilerFragment;
+    private static MainActivity instance;
 
     private final static String TYPE_IBOX = "IBOX";
     private final static String TYPE_STA = "STA";
     private final static String TYPE_BOILER = "BOILER";
-    private String message;
+    public String bluetoothMessage;
+    public static MainActivity getInstance() {
+        return instance;
+    }
+
     @Override
     protected void onCreate (Bundle savedInstance) {
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_main);
         setUpView();
+        instance = this;
+        this.mConnectionBT = new BluetoothConnection();
         setUpViewPagerAdapter();
-
     }
 
     private void setUpView(){
@@ -74,16 +84,22 @@ public class MainActivity extends AppCompatActivity {
         appBarLayout = (AppBarLayout) ((AppCompatActivity) this).findViewById(R.id.appBarLayout);
         viewPager = (ViewPager) ((AppCompatActivity) this).findViewById(R.id.viewPager);
         tabActivity = new TabActivity(getSupportFragmentManager());
-
     }
 
 
     private void setUpViewPagerAdapter(){
-        tabActivity.addFragment(new BluetoothFragment(), "BLUETOOTH");
-        tabActivity.addFragment(new GenericFragment(), "GENERIC");
-        tabActivity.addFragment(new DeviceFragment(), "DEVICE");
-        viewPager.setAdapter(tabActivity);
+        iboxFragment = new IboxFragment();
+        boilerFragment = new BoilerFragment();
+        staFragment = new StaFragment();
+        bluetoothFragment = new BluetoothFragment();
+        genericFragment = new GenericFragment();
+        deviceFragment = new DeviceFragment();
 
+        tabActivity.addFragment(bluetoothFragment, "BLUETOOTH");
+        tabActivity.addFragment(genericFragment, "GENERIC");
+        tabActivity.addFragment(deviceFragment, "DEVICE");
+
+        viewPager.setAdapter(tabActivity);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -120,7 +136,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public String getBluetoothMessage() {
+        return bluetoothMessage;
+    }
 
+    public void setBluetoothMessage(String message) {
+        bluetoothMessage = message;
+    }
 
 }
 

@@ -1,5 +1,6 @@
 package com.mcuhq.simplebluetooth;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -23,12 +25,25 @@ public class GenericFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private BluetoothConnection mConnectionBT;
+    private Button buttonTerminal;
+    private Button buttonAppKey;
+    private Button buttonDeveui;
+    private Button buttonTimeTx;
+    private Button buttonInput;
+    private EditText appKeyText;
+    private EditText deveuiText;
+    private EditText timeTxText;
+    private EditText inputText;
 
-    private String readMessage = null;
-    private Button mButtonTerminal;
+
+
+
     private TextView mTerminal;
     private String informacionRecibida;
+    private MainActivity mainActivity;
+    public  String readMessage;
+    private TextView gBluetoothStatus;
+    private TextView gReadBuffer;
     public GenericFragment() {
         // Required empty public constructor
     }
@@ -52,8 +67,8 @@ public class GenericFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_generic, container, false);
-        mConnectionBT = new BluetoothConnection(getActivity());
-        readMessage=BluetoothFragment.readMessage;
+        //MainActivity.getInstance().mConnectionBT.setActivityInMainActivity(getActivity());
+
 
         //mHandler= new HandleBluetooth(this);
         return view;
@@ -62,24 +77,72 @@ public class GenericFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if (readMessage == null) {
-            Log.d("msg", "readMessage null");
-        }
-        informacionRecibida=readMessage;
+
         mTerminal=view.findViewById(R.id.terminalView) ;
-      //  mTerminal.setMovementMethod(new ScrollingMovementMethod());
-       // mTerminal.setScrollbarFadingEnabled(false);
-        mButtonTerminal=view.findViewById(R.id.terminalButton) ;
+        buttonTerminal=view.findViewById(R.id.terminalButton) ;
+        buttonAppKey=view.findViewById(R.id.appKeyButton) ;
+        buttonDeveui=view.findViewById(R.id.deveuiButton) ;
+        buttonTimeTx=view.findViewById(R.id.txButton) ;
+        buttonInput=view.findViewById(R.id.inputButton) ;
+        appKeyText= view.findViewById(R.id.txtapp_key);
+        deveuiText= view.findViewById(R.id.txtdev_eui);
+        timeTxText= view.findViewById(R.id.txttime_tx);
+        inputText= view.findViewById(R.id.txtInputTerminal);
 
 
-        mButtonTerminal.setOnClickListener(new View.OnClickListener(){
+        buttonTerminal.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                String mensaje = "Información recibida: " + informacionRecibida;
+                readMessage=MainActivity.getInstance().getBluetoothMessage();
+               // gReadBuffer.setText(readMessage);
+
+                String mensaje = "Información recibida: " + readMessage;
                 mTerminal.append(mensaje + "\n");
+            }
+        });
+        buttonAppKey.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
+                    MainActivity.getInstance().mConnectionBT.mConnectedThread.write(appKeyText.getText().toString());
+            }
+        });
+        buttonDeveui.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
+                    MainActivity.getInstance().mConnectionBT.mConnectedThread.write(deveuiText.getText().toString());
+
+            }
+        });
+        buttonTimeTx.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
+                    MainActivity.getInstance().mConnectionBT.mConnectedThread.write(timeTxText.getText().toString());
+
+            }
+        });
+        buttonInput.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
+                    MainActivity.getInstance().mConnectionBT.mConnectedThread.write(inputText.getText().toString());
 
             }
         });
 
+
     }
+  /* public void onAttach(Context context) {
+        super.onAttach(context);
+        readMessage = mainActivity.getInstance().getBluetoothMessage();
+
+        mainActivity = (MainActivity) context;
+    }
+
+    // Método para obtener el valor de la variable
+    public String getBluetoothMessage() {
+        return mainActivity.bluetoothMessage;
+    }*/
 }
