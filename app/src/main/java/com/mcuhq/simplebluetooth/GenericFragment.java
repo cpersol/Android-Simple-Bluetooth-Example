@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.mcuhq.simplebluetooth.ProcessToSendMessage;
 
 
 public class GenericFragment extends Fragment {
@@ -34,6 +36,12 @@ public class GenericFragment extends Fragment {
     private EditText deveuiText;
     private EditText timeTxText;
     private EditText inputText;
+    private String appkey_hexString;
+    private String appkey_base64String;
+    private String deveui_hexString;
+    private String deveui_base64String;
+    private String interval_hexString;
+    private String interval_base64String;
 
 
 
@@ -68,7 +76,7 @@ public class GenericFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_generic, container, false);
         //MainActivity.getInstance().mConnectionBT.setActivityInMainActivity(getActivity());
-
+        ProcessToSendMessage processToSendMessage= new ProcessToSendMessage();
 
         //mHandler= new HandleBluetooth(this);
         return view;
@@ -104,14 +112,18 @@ public class GenericFragment extends Fragment {
             @Override
             public void onClick(View v){
                 if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
-                    MainActivity.getInstance().mConnectionBT.mConnectedThread.write(appKeyText.getText().toString());
+                    appkey_hexString = "A2"+appKeyText.getText().toString();
+                    String appkey_base64String=ProcessToSendMessage.hexToBase64(appkey_hexString);
+                MainActivity.getInstance().mConnectionBT.mConnectedThread.write(appkey_base64String);
             }
         });
         buttonDeveui.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
-                    MainActivity.getInstance().mConnectionBT.mConnectedThread.write(deveuiText.getText().toString());
+                    deveui_hexString = "A3"+deveuiText.getText().toString();
+                     String deveui_base64String=ProcessToSendMessage.hexToBase64(deveui_hexString);
+                    MainActivity.getInstance().mConnectionBT.mConnectedThread.write( deveui_base64String);
 
             }
         });
@@ -119,7 +131,9 @@ public class GenericFragment extends Fragment {
             @Override
             public void onClick(View v){
                 if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
-                    MainActivity.getInstance().mConnectionBT.mConnectedThread.write(timeTxText.getText().toString());
+                    interval_hexString = "A4"+timeTxText.getText().toString();
+                    String interval_base64String=ProcessToSendMessage.hexToBase64(interval_hexString);
+                    MainActivity.getInstance().mConnectionBT.mConnectedThread.write(interval_base64String);
 
             }
         });
