@@ -33,11 +33,6 @@ import java.util.UUID;
 
 import java.util.Set;
 
-/*
- * A simple {@link Fragment} subclass.
- * Use the {@link BluetoothFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class BluetoothFragment extends Fragment  {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -72,10 +67,6 @@ public class BluetoothFragment extends Fragment  {
     private Button mDiscoverBtn;
     private ListView mDevicesListView;
     private CheckBox mLED1;
-
-
-
-
     private BluetoothAdapter mBTAdapter;
     private Set<BluetoothDevice> mPairedDevices;
     private ArrayAdapter<String> mBTArrayAdapter;

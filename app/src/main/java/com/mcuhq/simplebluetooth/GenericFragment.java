@@ -56,16 +56,6 @@ public class GenericFragment extends Fragment {
         // Required empty public constructor
     }
 
-
-    // TODO: Rename and change types and number of parameters
-   /* public static GenericFragment newInstance(String param1, String param2) {
-        GenericFragment fragment = new GenericFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }*/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,9 +66,6 @@ public class GenericFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_generic, container, false);
         //MainActivity.getInstance().mConnectionBT.setActivityInMainActivity(getActivity());
-        ProcessToSendMessage processToSendMessage= new ProcessToSendMessage();
-
-        //mHandler= new HandleBluetooth(this);
         return view;
     }
 
@@ -102,8 +89,6 @@ public class GenericFragment extends Fragment {
             @Override
             public void onClick(View v){
                 readMessage=MainActivity.getInstance().getBluetoothMessage();
-               // gReadBuffer.setText(readMessage);
-
                 String mensaje = "Información recibida: " + readMessage;
                 mTerminal.append(mensaje + "\n");
             }
@@ -148,15 +133,4 @@ public class GenericFragment extends Fragment {
 
 
     }
-  /* public void onAttach(Context context) {
-        super.onAttach(context);
-        readMessage = mainActivity.getInstance().getBluetoothMessage();
-
-        mainActivity = (MainActivity) context;
-    }
-
-    // Método para obtener el valor de la variable
-    public String getBluetoothMessage() {
-        return mainActivity.bluetoothMessage;
-    }*/
 }
