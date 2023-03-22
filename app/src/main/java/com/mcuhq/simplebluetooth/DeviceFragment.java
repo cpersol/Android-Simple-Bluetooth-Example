@@ -43,7 +43,9 @@ public class DeviceFragment extends Fragment {
      private final static String TYPE_IBOX = "IBOX";
      private final static String TYPE_STA = "STA";
      private final static String TYPE_BOILER = "BOILER";
-    public String type="BOILER";
+    private final static String TYPE_LAZOSPARKING= "LAZOSPARKING";
+
+    public String type = readMessage=MainActivity.getInstance().getBluetoothMessage();
 
 
      // TODO: Rename and change types of parameters
@@ -164,6 +166,15 @@ public class DeviceFragment extends Fragment {
                                   transaction.replace(R.id.fragmentDev, boilerFragment);
                                //   transaction.addToBackStack(null);
                                   transaction.commit();
+                              }else {
+                                  if (type == TYPE_LAZOSPARKING) {
+                                      FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                      LazosParkingFragment lazosParkingFragment = new LazosParkingFragment();
+                                      FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                      transaction.replace(R.id.fragmentDev,lazosParkingFragment);
+                                      //   transaction.addToBackStack(null);
+                                      transaction.commit();
+                                  }
                               }
                           }
                       }
