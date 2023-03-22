@@ -32,6 +32,7 @@ public class GenericFragment extends Fragment {
     private Button buttonDeveui;
     private Button buttonTimeTx;
     private Button buttonInput;
+    private Button buttonGetConfigSensor;
     private EditText appKeyText;
     private EditText deveuiText;
     private EditText timeTxText;
@@ -42,7 +43,7 @@ public class GenericFragment extends Fragment {
     private String deveui_base64String;
     private String interval_hexString;
     private String interval_base64String;
-
+    public Headers headers = new Headers();
 
 
 
@@ -83,6 +84,7 @@ public class GenericFragment extends Fragment {
         deveuiText= view.findViewById(R.id.txtdev_eui);
         timeTxText= view.findViewById(R.id.txttime_tx);
         inputText= view.findViewById(R.id.txtInputTerminal);
+        buttonGetConfigSensor= view.findViewById(R.id.getInfoButton);
 
 
         buttonTerminal.setOnClickListener(new View.OnClickListener(){
@@ -97,16 +99,16 @@ public class GenericFragment extends Fragment {
             @Override
             public void onClick(View v){
                 if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
-                    appkey_hexString = "A2"+appKeyText.getText().toString();
+                    appkey_hexString = Headers.SET_APPKEY+appKeyText.getText().toString();
                     String appkey_base64String=ProcessToSendMessage.hexToBase64(appkey_hexString);
-                MainActivity.getInstance().mConnectionBT.mConnectedThread.write(appkey_base64String);
+                   MainActivity.getInstance().mConnectionBT.mConnectedThread.write(appkey_base64String);
             }
         });
         buttonDeveui.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
-                    deveui_hexString = "A3"+deveuiText.getText().toString();
+                    deveui_hexString = Headers.SET_DEVEUI+deveuiText.getText().toString();
                      String deveui_base64String=ProcessToSendMessage.hexToBase64(deveui_hexString);
                     MainActivity.getInstance().mConnectionBT.mConnectedThread.write( deveui_base64String);
 
@@ -116,7 +118,7 @@ public class GenericFragment extends Fragment {
             @Override
             public void onClick(View v){
                 if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
-                    interval_hexString = "A4"+timeTxText.getText().toString();
+                    interval_hexString = Headers.SET_TIME+timeTxText.getText().toString();
                     String interval_base64String=ProcessToSendMessage.hexToBase64(interval_hexString);
                     MainActivity.getInstance().mConnectionBT.mConnectedThread.write(interval_base64String);
 
@@ -130,7 +132,28 @@ public class GenericFragment extends Fragment {
 
             }
         });
+        buttonGetConfigSensor.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                String infoSensor =MainActivity.getInstance().getBluetoothMessage();
+                Log.d("infoSensor", "readMessage");
+                String [] partes = infoSensor.split("_");
 
+
+                String header = partes[0];
+
+                if(header.equals(headers.GET_GENERIC_INFO)) {
+                    Log.d("infoSensor", "Split");
+                    String appKey = partes[1];
+                    String deveui = partes[2];
+                    String time = partes[3];
+
+                    appKeyText.setText(appKey);
+                    deveuiText.setText(deveui);
+                    timeTxText.setText(time);
+
+                }}
+        });
 
     }
 }

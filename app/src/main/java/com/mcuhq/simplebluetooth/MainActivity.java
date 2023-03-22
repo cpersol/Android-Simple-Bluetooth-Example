@@ -59,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
     private BluetoothFragment bluetoothFragment;
     private BoilerFragment boilerFragment;
     private static MainActivity instance;
-
+    public String infoGeneric;
+public Headers headers = new Headers();
     private final static String TYPE_IBOX = "IBOX";
     private final static String TYPE_STA = "STA";
     private final static String TYPE_BOILER = "BOILER";
@@ -114,6 +115,10 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         imageView.setImageResource(R.drawable.ic_generic);
                         Log.d("TAG1", "Posicion: " + tabLayout.getSelectedTabPosition() + " Titulo: " + tabActivity.getPageTitle(tabLayout.getSelectedTabPosition()));
+                        if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
+                         infoGeneric = headers.GET_GENERIC_INFO + headers.GET_GENERIC_DATA;
+                        String infoGeneric_base64String=ProcessToSendMessage.hexToBase64(infoGeneric);
+                        MainActivity.getInstance().mConnectionBT.mConnectedThread.write(infoGeneric_base64String);
                         break;
                     case 2:
                         imageView.setImageResource(R.drawable.ic_devices);
