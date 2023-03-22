@@ -61,7 +61,8 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c1setCurrentText"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -73,7 +74,8 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c2setCurrentText"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -84,7 +86,8 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c12setCurrentText"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -95,12 +98,14 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c21setCurrentText"/>
                 <Button
                     android:layout_marginLeft="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="OK"
+                    android:id="@+id/setCurrentButton"
                     />
 
             </LinearLayout>
@@ -133,7 +138,8 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c1setResetText"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -145,7 +151,8 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c2setResetText"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -156,7 +163,8 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c12setResetText"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -167,12 +175,14 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c21setResetText"/>
                 <Button
                     android:layout_marginLeft="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="OK"
+                    android:id="@+id/setResetButton"
                     />
 
             </LinearLayout>
@@ -205,7 +215,8 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c1getCurrentText"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -217,7 +228,8 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c2getCurrentText"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -228,7 +240,8 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c12getCurrentText"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -239,12 +252,14 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c21getCurrentText"/>
                 <Button
                     android:layout_marginLeft="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="OK"
+                    android:id="@+id/getCurrentButton"
                     />
 
             </LinearLayout>
@@ -277,7 +292,8 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c1getMaxValueText"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -289,7 +305,8 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c2getMaxValueText"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -300,7 +317,8 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c12getMaxValueText"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -311,17 +329,56 @@
                 <EditText
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint="" />
+                    android:hint=""
+                    android:id="@+id/c21getMaxValueText"/>
                 <Button
                     android:layout_marginLeft="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="OK"
+                    android:id="@+id/getMaxvalueButton"
                     />
 
             </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="0.1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="GET_MAX_VALUE:"
+            android:textStyle="bold"
+            android:textSize="17dp"/>
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="C1:"
+                    android:textSize="17dp" />
+
+                <TextView
+                    android:id="@+id/maxValueView"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="17dp" />
+
+                <Button
+                    android:id="@+id/getMaxvalueButton2"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:text="OK" />
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
