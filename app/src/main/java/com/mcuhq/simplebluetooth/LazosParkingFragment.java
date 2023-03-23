@@ -53,28 +53,12 @@ public class LazosParkingFragment  extends Fragment {
 
         buttonSetCurrent=view.findViewById(R.id.setCurrentButton) ;
         buttonSetReset=view.findViewById(R.id.setResetButton) ;
-        buttonGetCurrent=view.findViewById(R.id.getCurrentButton) ;
-        buttonGetMaxValue=view.findViewById(R.id.getMaxvalueButton) ;
 
         txtC1setCurrent=view.findViewById(R.id.c1setCurrentText) ;
         txtC2setCurrent=view.findViewById(R.id.c2setCurrentText) ;
         txtC12setCurrent=view.findViewById(R.id.c12setCurrentText) ;
         txtC21setCurrent=view.findViewById(R.id.c21setCurrentText) ;
 
-        txtC1setReset=view.findViewById(R.id.c1setResetText) ;
-        txtC2setReset=view.findViewById(R.id.c2setResetText) ;
-        txtC12setReset=view.findViewById(R.id.c12setResetText) ;
-        txtC21setReset=view.findViewById(R.id.c21setResetText) ;
-
-        txtC1getCurrent=view.findViewById(R.id.c1getCurrentText) ;
-        txtC2getCurrent=view.findViewById(R.id.c2getCurrentText) ;
-        txtC12getCurrent=view.findViewById(R.id.c12getCurrentText) ;
-        txtC21getCurrent=view.findViewById(R.id.c21getCurrentText) ;
-
-        txtC1getMaxValue=view.findViewById(R.id.c1getMaxValueText) ;
-        txtC2getMaxValue=view.findViewById(R.id.c2getMaxValueText) ;
-        txtC12getMaxValue=view.findViewById(R.id.c12getMaxValueText) ;
-        txtC21getMaxValue=view.findViewById(R.id.c21getMaxValueText) ;
 
 
         buttonSetCurrent.setOnClickListener(new View.OnClickListener(){
