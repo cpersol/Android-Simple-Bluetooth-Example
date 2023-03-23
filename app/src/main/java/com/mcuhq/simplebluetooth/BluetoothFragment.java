@@ -57,7 +57,8 @@ public class BluetoothFragment extends Fragment  {
     private final static String TYPE_STA = "STA";
     private final static String TYPE_BOILER = "BOILER";
     public static String readMessage = null;
-
+    public Headers headers = new Headers();
+    public String infoGeneric;
     // GUI Components
     private TextView mBluetoothStatus;
     private TextView mReadBuffer;
@@ -137,8 +138,13 @@ public class BluetoothFragment extends Fragment  {
             mLED1.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
-                    if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
-                        MainActivity.getInstance().mConnectionBT.mConnectedThread.write("CARLA");
+                    /*if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
+                        MainActivity.getInstance().mConnectionBT.mConnectedThread.write("CARLA");*/
+                    if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null){//First check to make sure thread created
+                        infoGeneric = headers.GET_GENERIC_INFO + headers.GET_GENERIC_DATA;
+                        String infoGeneric_base64String=ProcessToSendMessage.hexToBase64(infoGeneric);
+                        MainActivity.getInstance().mConnectionBT.mConnectedThread.write(infoGeneric_base64String);
+                    }
                 }
             });
 
@@ -151,8 +157,10 @@ public class BluetoothFragment extends Fragment  {
                   }
                   else{
                       mBluetoothStatus.setText("DISCONNECTED");
+                      Toast.makeText(getActivity().getApplicationContext(),getString(R.string.BTisON),Toast.LENGTH_SHORT).show();
                   }
                 }
+
             });
 
             mOffBtn.setOnClickListener(new View.OnClickListener(){
@@ -161,9 +169,11 @@ public class BluetoothFragment extends Fragment  {
                     boolean responseOff= MainActivity.getInstance().mConnectionBT.bluetoothOff();
                     if(responseOff){
                         mBluetoothStatus.setText(getString(R.string.BTturOff));
+                        Toast.makeText(getActivity().getApplicationContext(),getString(R.string.BTturOff),Toast.LENGTH_SHORT).show();
                     }
                     else{
                         mBluetoothStatus.setText("DISENABLE");
+                        Toast.makeText(getActivity().getApplicationContext(),getString(R.string.BTturOff),Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -179,6 +189,7 @@ public class BluetoothFragment extends Fragment  {
                 @Override
                 public void onClick(View v){
                     MainActivity.getInstance().mConnectionBT.discover(mBTArrayAdapter, getActivity());
+                    Toast.makeText(getActivity().getApplicationContext(),getString(R.string.Discover),Toast.LENGTH_SHORT).show();;
                 }
             });
         }

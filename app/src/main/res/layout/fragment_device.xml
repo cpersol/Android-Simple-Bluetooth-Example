@@ -13,15 +13,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="TYPE" />
+    <Button
+        android:id="@+id/buttonGetInfoDevice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:text="GET INFO" />
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="652dp"
         android:id="@+id/fragmentDev"
-        android:layout_marginTop="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="757dp"
+        android:layout_marginTop="136dp"
         tools:context=".DeviceFragment">
 
+
     </FrameLayout>
+
+
 </FrameLayout>
+
 
 

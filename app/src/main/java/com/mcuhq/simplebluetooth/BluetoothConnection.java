@@ -69,6 +69,7 @@ public class BluetoothConnection {
     private Activity activity;
     protected Handler mHandler; // Our main handler that will receive callback notifications
     public ConnectedThread mConnectedThread; // bluetooth background worker thread to send and receive data
+    public String errorTextHexFormat = "Este texto no es válido, compruebe si es Hexadecimal";
     public BluetoothConnection () {
         this.context=context;
         this.bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -99,9 +100,11 @@ public class BluetoothConnection {
             this.activity.startActivityForResult( enableBtIntent, REQUEST_ENABLE_BT);
             if (bluetoothAdapter.isEnabled()) {
             return  true;
+
             }
         }
         return true;
+
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent Data){

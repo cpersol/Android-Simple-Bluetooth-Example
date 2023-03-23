@@ -68,6 +68,14 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:hint="Texto de entrada" />
+
+        <TextView
+            android:id="@+id/textViewAppKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/rojo"
+            />
+
         <Button
             android:id="@+id/appKeyButton"
             android:layout_width="match_parent"
@@ -102,6 +110,13 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:hint="Texto de entrada" />
+
+        <TextView
+            android:id="@+id/textViewDeveui"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/rojo" />
+
         <Button
             android:id="@+id/deveuiButton"
             android:layout_width="match_parent"
@@ -136,6 +151,13 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:hint="Texto de entrada" />
+
+        <TextView
+            android:id="@+id/textViewInterval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/rojo" />
+
         <Button
             android:id="@+id/txButton"
             android:layout_width="match_parent"
@@ -212,6 +234,12 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:hint="Texto de entrada" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
         <Button
             android:id="@+id/inputButton"

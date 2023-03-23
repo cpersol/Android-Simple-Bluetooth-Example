@@ -41,228 +41,99 @@
                 android:layout_weight="0.1"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="SET_CURRENT_VALUE:"
-                android:textStyle="bold"
-                android:textSize="17dp"/>
+                android:text="CURRENT VALUE:"
+                android:textSize="17dp"
+                android:textStyle="bold" />
 
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="336dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="8dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="C1:"
-                    android:textSize="17dp"/>
+                    android:textSize="17dp" />
 
                 <EditText
+                    android:id="@+id/c1setCurrentText"
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c1setCurrentText"/>
+                    android:hint="" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
                     android:text="C2:"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="17dp"/>
+                    android:textSize="17dp" />
 
                 <EditText
+                    android:id="@+id/c2setCurrentText"
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c2setCurrentText"/>
+                    android:hint="" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:text="C12:"
-                    android:textSize="17dp"/>
+                    android:textSize="17dp" />
 
                 <EditText
+                    android:id="@+id/c12setCurrentText"
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c12setCurrentText"/>
+                    android:hint="" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:text="C21:"
-                    android:textSize="17dp"/>
+                    android:textSize="17dp" />
 
                 <EditText
+                    android:id="@+id/c21setCurrentText"
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c21setCurrentText"/>
-                <Button
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="OK"
-                    android:id="@+id/setCurrentButton"
-                    />
+                    android:hint="" />
+
 
             </LinearLayout>
 
-
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_weight="0.1"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="SET_RESET_VALUE:"
-                android:textStyle="bold"
-                android:textSize="17dp"/>
-
-
-            <LinearLayout
+                android:id="@+id/textViewCurrentValue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
+                android:textColor="@color/rojo"
+                />
+            <Button
+                android:id="@+id/setCurrentButton"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_gravity="center"
+                android:text="ENVIAR" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="C1:"
-                    android:textSize="17dp"/>
 
-                <EditText
-                    android:layout_width="39dp"
-                    android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c1setResetText"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="C2:"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="17dp"/>
-
-                <EditText
-                    android:layout_width="39dp"
-                    android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c2setResetText"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="C12:"
-                    android:textSize="17dp"/>
-
-                <EditText
-                    android:layout_width="39dp"
-                    android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c12setResetText"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="C21:"
-                    android:textSize="17dp"/>
-
-                <EditText
-                    android:layout_width="39dp"
-                    android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c21setResetText"/>
-                <Button
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="OK"
+            <Button
                     android:id="@+id/setResetButton"
-                    />
-
-            </LinearLayout>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_weight="0.1"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="GET_CURRENT_VALUE:"
-                android:textStyle="bold"
-                android:textSize="17dp"/>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="320dp"
                     android:layout_height="wrap_content"
-                    android:text="C1:"
-                    android:textSize="17dp"/>
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="10dp"
+                    android:text="RESET VALUE" />
 
-                <EditText
-                    android:layout_width="39dp"
-                    android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c1getCurrentText"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="C2:"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="17dp"/>
 
-                <EditText
-                    android:layout_width="39dp"
-                    android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c2getCurrentText"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="C12:"
-                    android:textSize="17dp"/>
-
-                <EditText
-                    android:layout_width="39dp"
-                    android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c12getCurrentText"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="C21:"
-                    android:textSize="17dp"/>
-
-                <EditText
-                    android:layout_width="39dp"
-                    android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c21getCurrentText"/>
-                <Button
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="OK"
-                    android:id="@+id/getCurrentButton"
-                    />
-
-            </LinearLayout>
 
 
             <TextView
@@ -273,8 +144,8 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="GET_MAX_VALUE:"
-                android:textStyle="bold"
-                android:textSize="17dp"/>
+                android:textSize="17dp"
+                android:textStyle="bold" />
 
 
             <LinearLayout
@@ -286,83 +157,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="C1:"
-                    android:textSize="17dp"/>
-
-                <EditText
-                    android:layout_width="39dp"
-                    android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c1getMaxValueText"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="C2:"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="17dp"/>
-
-                <EditText
-                    android:layout_width="39dp"
-                    android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c2getMaxValueText"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="C12:"
-                    android:textSize="17dp"/>
-
-                <EditText
-                    android:layout_width="39dp"
-                    android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c12getMaxValueText"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="C21:"
-                    android:textSize="17dp"/>
-
-                <EditText
-                    android:layout_width="39dp"
-                    android:layout_height="wrap_content"
-                    android:hint=""
-                    android:id="@+id/c21getMaxValueText"/>
-                <Button
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="OK"
-                    android:id="@+id/getMaxvalueButton"
-                    />
-
-            </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_weight="0.1"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="GET_MAX_VALUE:"
-            android:textStyle="bold"
-            android:textSize="17dp"/>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="C1:"
+                    android:text="TOTAL:"
                     android:textSize="17dp" />
 
                 <TextView

@@ -1,6 +1,7 @@
 package com.mcuhq.simplebluetooth;
 
 import java.util.Base64;
+import java.util.regex.Pattern;
 
 public class ProcessToSendMessage {
 
@@ -16,6 +17,11 @@ public class ProcessToSendMessage {
    return base64String;
   }
   return null;
+ }
+
+ public static boolean isHexadecimal(String str) {
+  Pattern pattern = Pattern.compile("^[0-9A-Fa-f]+$");
+  return pattern.matcher(str).matches();
  }
 }
 

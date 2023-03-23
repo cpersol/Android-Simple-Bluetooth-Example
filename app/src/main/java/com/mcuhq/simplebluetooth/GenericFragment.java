@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.mcuhq.simplebluetooth.ProcessToSendMessage;
 
 
@@ -44,6 +46,9 @@ public class GenericFragment extends Fragment {
     private String interval_hexString;
     private String interval_base64String;
     public Headers headers = new Headers();
+    private TextView textViewAPPKEY;
+    private TextView textViewDEVEUI;
+    private TextView textViewINTERVAL;
 
 
 
@@ -85,7 +90,9 @@ public class GenericFragment extends Fragment {
         timeTxText= view.findViewById(R.id.txttime_tx);
         inputText= view.findViewById(R.id.txtInputTerminal);
         buttonGetConfigSensor= view.findViewById(R.id.getInfoButton);
-
+        textViewAPPKEY= view.findViewById(R.id.textViewAppKey);
+        textViewDEVEUI= view.findViewById(R.id.textViewDeveui);
+        textViewINTERVAL= view.findViewById(R.id.textViewInterval);
 
         buttonTerminal.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -98,19 +105,35 @@ public class GenericFragment extends Fragment {
         buttonAppKey.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
+                if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null){//First check to make sure thread created
                     appkey_hexString = Headers.SET_APPKEY+appKeyText.getText().toString();
+                    if(ProcessToSendMessage.isHexadecimal(appkey_hexString)){
                     String appkey_base64String=ProcessToSendMessage.hexToBase64(appkey_hexString);
-                   MainActivity.getInstance().mConnectionBT.mConnectedThread.write(appkey_base64String);
-            }
+                    MainActivity.getInstance().mConnectionBT.mConnectedThread.write(appkey_base64String);
+                    textViewAPPKEY.setText("");
+                    Toast.makeText(getActivity().getApplicationContext(), getString(R.string.sent), Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        textViewAPPKEY.setText(MainActivity.getInstance().mConnectionBT.errorTextHexFormat);
+
+                    }
+            }}
         });
         buttonDeveui.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
                     deveui_hexString = Headers.SET_DEVEUI+deveuiText.getText().toString();
-                     String deveui_base64String=ProcessToSendMessage.hexToBase64(deveui_hexString);
-                    MainActivity.getInstance().mConnectionBT.mConnectedThread.write( deveui_base64String);
+                if(ProcessToSendMessage.isHexadecimal(deveui_hexString)){
+                        String deveui_base64String=ProcessToSendMessage.hexToBase64(deveui_hexString);
+                        MainActivity.getInstance().mConnectionBT.mConnectedThread.write( deveui_base64String);
+                        textViewDEVEUI.setText("");
+                        Toast.makeText(getActivity().getApplicationContext(), getString(R.string.sent), Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        textViewDEVEUI.setText(MainActivity.getInstance().mConnectionBT.errorTextHexFormat);
+
+                    }
 
             }
         });
@@ -119,9 +142,15 @@ public class GenericFragment extends Fragment {
             public void onClick(View v){
                 if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
                     interval_hexString = Headers.SET_TIME+timeTxText.getText().toString();
+                if(ProcessToSendMessage.isHexadecimal(interval_hexString)){
                     String interval_base64String=ProcessToSendMessage.hexToBase64(interval_hexString);
                     MainActivity.getInstance().mConnectionBT.mConnectedThread.write(interval_base64String);
+                    textViewINTERVAL.setText("");
+                    Toast.makeText(getActivity().getApplicationContext(), getString(R.string.sent), Toast.LENGTH_SHORT).show();
+                }  else{
+                    textViewINTERVAL.setText(MainActivity.getInstance().mConnectionBT.errorTextHexFormat);
 
+                }
             }
         });
         buttonInput.setOnClickListener(new View.OnClickListener(){
@@ -135,7 +164,8 @@ public class GenericFragment extends Fragment {
         buttonGetConfigSensor.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                String infoSensor =MainActivity.getInstance().getBluetoothMessage();
+                if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null){
+                    String infoSensor =MainActivity.getInstance().getBluetoothMessage();
                 Log.d("infoSensor", "readMessage");
                 String [] partes = infoSensor.split("_");
 
@@ -152,7 +182,10 @@ public class GenericFragment extends Fragment {
                     deveuiText.setText(deveui);
                     timeTxText.setText(time);
 
-                }}
+                }}else{
+                    Toast.makeText(getActivity().getApplicationContext(), getString(R.string.sBTdevNF), Toast.LENGTH_SHORT).show();
+                }
+            }
         });
 
     }
