@@ -136,10 +136,6 @@ public class DeviceFragment extends Fragment {
         }}
 
 
-                //  cambiarFragmentoEnBaseAVariable();
-                  /* if(dConnectedThread != null) //First check to make sure thread created
-                        dConnectedThread.write("CARLOTILLA");
-                    Log.d("ConnectedThread", "CARLOTILLA");*/
 
 
                  public void cambiarFragmentoEnBaseAVariable() {
