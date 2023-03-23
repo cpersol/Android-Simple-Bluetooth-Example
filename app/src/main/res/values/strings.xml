@@ -12,14 +12,15 @@
     <string name="sBTdisabl">Bluetooth disabled</string>
     <string name="BTnotOn">Bluetooth not on</string>
     <string name="lt_bluetooth_status">Bluetooth status</string>
-    <string name="BTturOff">Bluetooth turned off</string>
+    <string name="BTturOff">Bluetooth off</string>
     <string name="cConnet">Connecting…</string>
     <string name="ErrSockCrea">Socket creation failed</string>
-    <string name="DisStart">Discovery started</string>
+    <string name="Discover" translatable="false">Discovering</string>
     <string name="show_paired_devices">Show Paired Devices</string>
     <string name="DisStop">Discovery stopped</string>
     <string name="status">"Status: "</string>
     <string name="discover_new_devices">Discover new device</string>
+    <string name="sent" translatable="false">Enviado</string>
     <!-- TODO: Remove or change this placeholder text -->
     <!--  <string name="hello_blank_fragment">Hello blank fragment</string> -->
  </resources>
