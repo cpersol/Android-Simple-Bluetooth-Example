@@ -36,6 +36,24 @@ This is a simple demo app that creates buttons to toggle ON/OFF the bluetooth ra
 
 Please submit all issues to the github tracker. Pull requests are also encouraged. General comments can be left either inside github or at [mcuhq.com](http://mcuhq.com/27/simple-android-bluetooth-application-with-arduino-example).
 
+## Protocolos de comunicación
 
+En esta app se hhan utilizado diferentes cabezeras (headers) para poder diferenciar distintos mensajes de entrada y salida. Los headers que se han utlizado son los siguientes:
+- Las cabezeras que empiezan por A corresponden a la información para el fragmento genérico.
+        
+        A0: Para que el sensor detecte que le están pidiendo la información dea PPKEY,DEVEUI y TIME.
+        A1: Para que el sensor sepa que se trata de una APPKEY
+        A2: Para que el sensor sepa que se trata de una DEVEUI
+        A3: Para que el sensor sepa que se trata de un TIME TX
 
+## Specific Device 
 
+Las cabezeras que empiezan por B corresponden a la información para el fragmento de cada device concreto.
+
+## Lazos parking:
+
+        BO:
+        B1:
+        B2:
+        B3:
+        
