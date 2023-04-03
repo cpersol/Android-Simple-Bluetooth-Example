@@ -44,8 +44,7 @@ public class DeviceFragment extends Fragment {
      private final static String TYPE_STA = "STA";
      private final static String TYPE_BOILER = "BOILER";
     private final static String TYPE_LAZOSPARKING= "LAZOSPARKING";
-
-    public String type = readMessage=MainActivity.getInstance().getBluetoothMessage();
+    private String infoType;
 
 
      // TODO: Rename and change types of parameters
@@ -61,19 +60,20 @@ public class DeviceFragment extends Fragment {
      private final static int CONNECTING_STATUS = 3; // used in bluetooth handler to identify message status
      private TabLayout tabLayout;
      public static final int RESULT_OK = -1;
-
+    public Headers headers = new Headers();
+    public String infoGeneric;
      private String readMessage = null;
 
      // GUI Components
      private TextView mBluetoothStatus;
      private TextView mReadBuffer;
-     private Button Type;
+     private String type;
      private Button mOffBtn;
      private Button mListPairedDevicesBtn;
      private Button mDiscoverBtn;
      private ListView mDevicesListView;
      private CheckBox mLED1;
-
+     private Button ButtonGetInfo;
      private BluetoothAdapter mBTAdapter;
      private Set<BluetoothDevice> mPairedDevices;
      private ArrayAdapter<String> mBTArrayAdapter;
@@ -82,7 +82,7 @@ public class DeviceFragment extends Fragment {
      private ConnectedThread dConnectedThread; // bluetooth background worker thread to send and receive data
      private BluetoothSocket mBTSocket = null; // bi-directional client-to-client data path
     // TODO: Rename and change types of parameters
-    private String types;
+
      private BluetoothConnection dConnectionBT;
      private Button ButtonType;
      private Activity activity;
@@ -110,6 +110,8 @@ public class DeviceFragment extends Fragment {
         }
         ButtonType=view.findViewById(R.id.buttonType);
 
+
+
         mBTArrayAdapter = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1);
         mBTAdapter = BluetoothAdapter.getDefaultAdapter(); // get a handle on the bluetooth radio
 
@@ -131,50 +133,68 @@ public class DeviceFragment extends Fragment {
             ButtonType.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    cambiarFragmentoEnBaseAVariable();
-                }});
+
+                        cambiarFragmentoEnBaseAVariable();
+                    }
+            });
+
+
         }}
 
 
 
 
                  public void cambiarFragmentoEnBaseAVariable() {
-                      if (type == TYPE_IBOX) {
-                          FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                          IboxFragment iboxFragment = new IboxFragment();
-                          FragmentTransaction transaction = fragmentManager.beginTransaction();
-                          transaction.replace(R.id.fragmentDev, iboxFragment);
-                        //  transaction.addToBackStack(null);
-                          transaction.commit();
-                      } else {
-                          if (type == TYPE_STA) {
-                              FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                              StaFragment staFragment = new StaFragment();
-                              FragmentTransaction transaction = fragmentManager.beginTransaction();
-                              transaction.replace(R.id.fragmentDev, staFragment);
-                            //  transaction.addToBackStack(null);
-                              transaction.commit();
-                          }else {
-                              if (type == TYPE_BOILER) {
-                                  FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                                  BoilerFragment boilerFragment = new BoilerFragment();
-                                  FragmentTransaction transaction = fragmentManager.beginTransaction();
-                                  transaction.replace(R.id.fragmentDev, boilerFragment);
-                               //   transaction.addToBackStack(null);
-                                  transaction.commit();
-                              }else {
-                                  if (type == TYPE_LAZOSPARKING) {
-                                      FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                                      LazosParkingFragment lazosParkingFragment = new LazosParkingFragment();
-                                      FragmentTransaction transaction = fragmentManager.beginTransaction();
-                                      transaction.replace(R.id.fragmentDev,lazosParkingFragment);
-                                      //   transaction.addToBackStack(null);
-                                      transaction.commit();
-                                  }
-                              }
-                          }
-                      }
+                     if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null){
+                         Log.d("infoSensorDev", "readMessage");
+                         infoType= MainActivity.getInstance().getBluetoothMessage();
+                         String [] partes = infoType.split("_");
+
+                         String header = partes[0];
+                         type = partes[1];
+                         if(header.equals(headers.GET_DEVICE_INFO)) {
+                             Log.d("infoSensorDev", type);
+
+                             if (type.contains(TYPE_IBOX)) {
+                                 Log.d("infoSensorDev", "PATATA");
+
+                                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                 IboxFragment iboxFragment = new IboxFragment();
+                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                 transaction.replace(R.id.fragmentDev, iboxFragment);
+                                 //  transaction.addToBackStack(null);
+                                 transaction.commit();
+                             }
+                                 if (type.contains(TYPE_STA)){
+                                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                     StaFragment staFragment = new StaFragment();
+                                     FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                     transaction.replace(R.id.fragmentDev, staFragment);
+                                     //  transaction.addToBackStack(null);
+                                     transaction.commit();
+                                 }
+                                     if (type.contains(TYPE_BOILER)) {
+                                         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                         BoilerFragment boilerFragment = new BoilerFragment();
+                                         FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                         transaction.replace(R.id.fragmentDev, boilerFragment);
+                                         //   transaction.addToBackStack(null);
+                                         transaction.commit();
+                                     }
+                                         if (type.contains(TYPE_LAZOSPARKING)) {
+                                             Log.d("infoSensorLAZOS", "Split");
+                                             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                             LazosParkingFragment lazosParkingFragment = new LazosParkingFragment();
+                                             FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                             transaction.replace(R.id.fragmentDev,lazosParkingFragment);
+                                             //   transaction.addToBackStack(null);
+                                             transaction.commit();
+                                         }
+                         }}
+
                   }
+
+
                 public AdapterView.OnItemClickListener mDeviceClickListener = new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

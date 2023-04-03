@@ -11,18 +11,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LazosParkingFragment  extends Fragment {
     private Button buttonSetCurrent;
     private Button buttonSetReset;
-    private Button buttonGetCurrent;
+
     private Button buttonGetMaxValue;
-
-
+    private Button buttonGetInfoLazos;
+    private Button buttonSetMaxValue;
     private EditText txtC1setCurrent;
     private EditText txtC2setCurrent;
     private EditText txtC12setCurrent;
     private EditText txtC21setCurrent;
+    private TextView txtGetMaxValue;
     private EditText txtC1setReset;
     private EditText txtC2setReset;
     private EditText txtC12setReset;
@@ -35,6 +37,9 @@ public class LazosParkingFragment  extends Fragment {
     private EditText txtC2getMaxValue;
     private EditText txtC12getMaxValue;
     private EditText txtC21getMaxValue;
+
+
+    public Headers headers = new Headers();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,11 +58,16 @@ public class LazosParkingFragment  extends Fragment {
 
         buttonSetCurrent=view.findViewById(R.id.setCurrentButton) ;
         buttonSetReset=view.findViewById(R.id.setResetButton) ;
+        buttonGetInfoLazos=view.findViewById(R.id.buttonGetInfoLazos) ;
+        buttonGetMaxValue=view.findViewById(R.id.getMaxValueButton) ;
+        buttonSetMaxValue=view.findViewById(R.id.setMaxvalueButton) ;
 
         txtC1setCurrent=view.findViewById(R.id.c1setCurrentText) ;
         txtC2setCurrent=view.findViewById(R.id.c2setCurrentText) ;
         txtC12setCurrent=view.findViewById(R.id.c12setCurrentText) ;
         txtC21setCurrent=view.findViewById(R.id.c21setCurrentText) ;
+        txtGetMaxValue=view.findViewById(R.id.GetMaxValueView) ;
+
 
 
 
@@ -72,25 +82,55 @@ public class LazosParkingFragment  extends Fragment {
                 Log.d("buttonSetCurrent",totalResult);
             }
         });
-        buttonSetReset.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
 
-            }
-        });
-        buttonGetCurrent.setOnClickListener(new View.OnClickListener(){
+        buttonGetInfoLazos.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null){
+                    String infoLazos =MainActivity.getInstance().getBluetoothMessage();
+                    Log.d("infoLazos", "readMessage");
+                    String [] partes = infoLazos.split("_");
+
+                        String c1 = partes[2];
+                        String c2 = partes[3];
+                        String c12 = partes[4];
+                        String c21 = partes[5];
+
+                    txtC1setCurrent.setText(c1);
+                    txtC2setCurrent.setText(c2);
+                    txtC12setCurrent.setText(c12);
+                    txtC21setCurrent.setText(c21);
+
+                    }
 
             }
         });
         buttonGetMaxValue.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null){
+                    String infoLazos =MainActivity.getInstance().getBluetoothMessage();
+                    Log.d("infoLazos", "readMessage");
+                    String [] partes = infoLazos.split("_");
+
+                    String getMaxValue = partes[6];
+
+                    txtGetMaxValue.setText(getMaxValue);
+
+
+                }
 
             }
         });
-
+        buttonSetReset.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                txtC1setCurrent.setText("");
+                txtC2setCurrent.setText("");
+                txtC12setCurrent.setText("");
+                txtC21setCurrent.setText("");
+            }
+        });
 
     }
 }
