@@ -46,9 +46,11 @@ public class GenericFragment extends Fragment {
     private String interval_hexString;
     private String interval_base64String;
     public Headers headers = new Headers();
+    private String input_hexString;
     private TextView textViewAPPKEY;
     private TextView textViewDEVEUI;
     private TextView textViewINTERVAL;
+    private TextView textViewINPUT;
 
 
 
@@ -93,7 +95,7 @@ public class GenericFragment extends Fragment {
         textViewAPPKEY= view.findViewById(R.id.textViewAppKey);
         textViewDEVEUI= view.findViewById(R.id.textViewDeveui);
         textViewINTERVAL= view.findViewById(R.id.textViewInterval);
-
+        textViewINPUT= view.findViewById(R.id.textViewInput);
         buttonTerminal.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -156,8 +158,15 @@ public class GenericFragment extends Fragment {
         buttonInput.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
-                    MainActivity.getInstance().mConnectionBT.mConnectedThread.write(inputText.getText().toString());
+                if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null)//First check to make sure thread created
+                    input_hexString=inputText.getText().toString();
+                    if(ProcessToSendMessage.isHexadecimal(input_hexString)) {
+                        String input_base64String=ProcessToSendMessage.hexToBase64(input_hexString);
+                        MainActivity.getInstance().mConnectionBT.mConnectedThread.write(input_base64String);
+                        textViewINPUT.setText("");
+                    }else{
+                        textViewINPUT.setText(MainActivity.getInstance().mConnectionBT.errorTextHexFormat);
+                    }
 
             }
         });
