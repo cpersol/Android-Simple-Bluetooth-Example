@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> mBTArrayAdapter;
     private DeviceFragment mDeviceFragment;
     public String infoGeneric;
+    public String infoDevice;
     public Headers headers = new Headers();
     private IboxFragment iboxFragment;
     private GenericFragment genericFragment;
@@ -120,10 +121,14 @@ public class MainActivity extends AppCompatActivity {
                         String infoGeneric_base64String=ProcessToSendMessage.hexToBase64(infoGeneric);
                         MainActivity.getInstance().mConnectionBT.mConnectedThread.write(infoGeneric_base64String);}
                         break;
-                    case 2:
+                    /*case 2:
                         imageView.setImageResource(R.drawable.ic_devices);
                         Log.d("TAG1", "Posicion: " + tabLayout.getSelectedTabPosition() + " Titulo: " + tabActivity.getPageTitle(tabLayout.getSelectedTabPosition()));
-                        break;
+                        if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null){ //First check to make sure thread created
+                            infoDevice = headers.GET_DEVICE_INFO + headers.GET_GENERIC_DATA;
+                            String infoDevice_base64String=ProcessToSendMessage.hexToBase64(infoDevice);
+                            MainActivity.getInstance().mConnectionBT.mConnectedThread.write(infoDevice_base64String);}
+                        break;*/
                     default:
                         break;
                 }
