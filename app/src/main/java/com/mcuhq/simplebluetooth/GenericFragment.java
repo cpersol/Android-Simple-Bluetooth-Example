@@ -160,7 +160,7 @@ public class GenericFragment extends Fragment {
             public void onClick(View v){
                 if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null)//First check to make sure thread created
                     input_hexString=inputText.getText().toString();
-                    if(ProcessToSendMessage.isHexadecimal(input_hexString)) {
+                if(ProcessToSendMessage.isHexadecimal(input_hexString)) {
                         String input_base64String=ProcessToSendMessage.hexToBase64(input_hexString);
                         MainActivity.getInstance().mConnectionBT.mConnectedThread.write(input_base64String);
                         textViewINPUT.setText("");
