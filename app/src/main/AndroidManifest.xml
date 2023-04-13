@@ -22,10 +22,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity
+        <!--<activity
             android:name=".Menu"
-            android:exported="false" />
-        <activity android:name=".LoginActivity">
+            android:exported="false" /> -->
+        <activity android:name=".Menu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

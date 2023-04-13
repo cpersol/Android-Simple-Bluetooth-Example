@@ -95,11 +95,11 @@ public class MainActivity extends AppCompatActivity {
         staFragment = new StaFragment();
         bluetoothFragment = new BluetoothFragment();
         genericFragment = new GenericFragment();
-        deviceFragment = new DeviceFragment();
+      //  deviceFragment = new DeviceFragment();
 
         tabActivity.addFragment(bluetoothFragment, "BLUETOOTH");
         tabActivity.addFragment(genericFragment, "GENERIC");
-        tabActivity.addFragment(deviceFragment, "DEVICE");
+      //  tabActivity.addFragment(deviceFragment, "DEVICE");
 
         viewPager.setAdapter(tabActivity);
         tabLayout.setupWithViewPager(viewPager);
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         imageView.setImageResource(R.drawable.ic_generic);
                         Log.d("TAG1", "Posicion: " + tabLayout.getSelectedTabPosition() + " Titulo: " + tabActivity.getPageTitle(tabLayout.getSelectedTabPosition()));
-                        if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null){ //First check to make sure thread created
+                       if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null){ //First check to make sure thread created
                             infoGeneric = headers.GET_GENERIC_INFO + headers.GET_GENERIC_DATA;
                         String infoGeneric_base64String=ProcessToSendMessage.hexToBase64(infoGeneric);
                         MainActivity.getInstance().mConnectionBT.mConnectedThread.write(infoGeneric_base64String);}
