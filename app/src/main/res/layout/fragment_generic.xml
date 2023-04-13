@@ -67,7 +67,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:hint="Texto de entrada" />
+            android:hint="appkey"
+            android:maxLength="32" />
 
         <TextView
             android:id="@+id/textViewAppKey"
@@ -109,7 +110,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:hint="Texto de entrada" />
+            android:hint="deveui"
+            android:maxLength="16" />
 
         <TextView
             android:id="@+id/textViewDeveui"
@@ -150,7 +152,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:hint="Texto de entrada" />
+            android:hint="time tx"
+            android:maxLength="16" />
 
         <TextView
             android:id="@+id/textViewInterval"
@@ -190,7 +193,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="131dp"
+            android:layout_height="165dp"
             android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
@@ -233,12 +236,14 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:hint="Texto de entrada" />
+            android:hint="input" />
 
         <TextView
             android:id="@+id/textViewInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/rojo"
+
             />
 
         <Button
