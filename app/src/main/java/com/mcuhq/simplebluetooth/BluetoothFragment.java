@@ -138,13 +138,13 @@ public class BluetoothFragment extends Fragment  {
             mLED1.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
-                    /*if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
-                        MainActivity.getInstance().mConnectionBT.mConnectedThread.write("CARLA");*/
-                    if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null){//First check to make sure thread created
+                    if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
+                        MainActivity.getInstance().mConnectionBT.mConnectedThread.write("CARLA");
+                   /* if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null){//First check to make sure thread created
                         infoGeneric = headers.GET_GENERIC_INFO + headers.GET_GENERIC_DATA;
                         String infoGeneric_base64String=ProcessToSendMessage.hexToBase64(infoGeneric);
                         MainActivity.getInstance().mConnectionBT.mConnectedThread.write(infoGeneric_base64String);
-                    }
+                    }*/
                 }
             });
 
