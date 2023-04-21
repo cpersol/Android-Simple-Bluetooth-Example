@@ -38,7 +38,8 @@ public class Menu extends Activity {
         Gateway.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(Menu.this, MenuGateway.class);
+                startActivity(i);
 
             }
         });

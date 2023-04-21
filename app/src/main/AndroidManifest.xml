@@ -33,6 +33,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <activity android:name=".GatewayActivity" />
+        <activity android:name=".sshActivity" />
+        <activity android:name=".MenuGateway" />
+        <activity android:name=".MQTTActivity" />
     </application>
 
 </manifest>

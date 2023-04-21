@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorGris2">
+
+    <LinearLayout
+        android:layout_width="310dp"
+        android:layout_height="283dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/GatewayConfigButton"
+            android:layout_width="235dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/buttom_menu"
+            android:text="GATEWAY CONFIG"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/MqttButton"
+            android:layout_width="235dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/buttom_menu"
+            android:text="MQTT"
+            android:textSize="18dp" />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
