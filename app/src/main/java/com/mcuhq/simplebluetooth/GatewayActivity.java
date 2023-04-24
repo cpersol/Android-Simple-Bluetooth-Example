@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import org.apache.sshd.client.SshClient;
+import org.apache.sshd.client.channel.ChannelShell;
 import org.apache.sshd.client.channel.ClientChannel;
 import org.apache.sshd.client.channel.ClientChannelEvent;
 import org.apache.sshd.client.session.ClientSession;
@@ -46,6 +47,9 @@ public class GatewayActivity extends AppCompatActivity {
     private int port;
     private String portText;
     private ClientChannel channel;
+
+    private ClientSession session;
+   // private ChannelShell channel;
     private boolean conectado=false;
 
     @Override
@@ -129,7 +133,7 @@ public class GatewayActivity extends AppCompatActivity {
     }
 
 
-    public void CrearConexión (){
+   public void CrearConexión (){
        // if (!portText.isEmpty()) {
             Log.d("CREAR-SSH","port");
        // port=Integer.parseInt(portText);
@@ -154,15 +158,16 @@ public class GatewayActivity extends AppCompatActivity {
 
                         // Open channel
                         channel.open().verify(5, TimeUnit.SECONDS);
+
                         try (OutputStream pipedIn = channel.getInvertedIn()) {
                             pipedIn.write(command_ssh.getBytes());
                             pipedIn.flush();
                         }
 
                         // Close channel
-                        channel.waitFor(EnumSet.of(ClientChannelEvent.CLOSED),
-                                TimeUnit.SECONDS.toMillis(5));
-
+                      // channel.waitFor(EnumSet.of(ClientChannelEvent.CLOSED),
+                             // TimeUnit.SECONDS.toMillis(5));
+                            Thread.sleep(1000);
                         // Output after converting to string type
                         String responseString = new String(responseStream.toByteArray());
                         System.out.println(responseString);
@@ -177,9 +182,12 @@ public class GatewayActivity extends AppCompatActivity {
                         conectado=true;
                     } catch (IOException e) {
                         e.printStackTrace();
-                    } finally {
-                        client.stop();
-                    }
+                    }//finally {
+                       // client.stop();
+                   //}
+                        catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -200,6 +208,78 @@ public class GatewayActivity extends AppCompatActivity {
         }
     }}
 
+  /*  public void CrearConexión() {
+        Log.d("CREAR-SSH","port");
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    // Connection establishment and authentication
+                    session = client.connect(username, ip, port).verify(10000).getSession();
+                    session.addPasswordIdentity(password);
+                    session.auth().verify(50000);
+                    System.out.println("Connection established");
+
+                    // Create a channel to communicate
+                    channel = (ChannelShell) session.createChannel(Channel.CHANNEL_SHELL);
+                    System.out.println("Starting shell");
+
+                    ByteArrayOutputStream responseStream = new ByteArrayOutputStream();
+                    channel.setOut(responseStream);
+
+                    // Open channel
+                    channel.open().verify(5, TimeUnit.SECONDS);
+
+                    try (OutputStream pipedIn = channel.getInvertedIn()) {
+                        pipedIn.write(command_ssh.getBytes());
+                        pipedIn.flush();
+                    }
+
+                    // Close channel
+                    Thread.sleep(1000);
+                    channel.close();
+                    session.close();
+
+                    // Output after converting to string type
+                    String responseString = new String(responseStream.toByteArray());
+                    System.out.println(responseString);
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            shellOutput_ssh.setText(responseString);
+                        }
+                    });
+
+                    Log.d("CREAR-SSH","CREADA");
+                    conectado=true;
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
+    }
+    public void setEnviarComando(String comando) {
+        if (conectado) {
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        OutputStream pipedIn = channel.getInvertedIn();
+                        pipedIn.write(comando.getBytes());
+                        pipedIn.flush();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            thread.start();
+        } else {
+            Log.d("ENVIAR-COMANDO", "No se puede enviar comando, no hay conexión establecida");
+        }
+    }*/
 
     public void redireccionar5000(View view) {
 
