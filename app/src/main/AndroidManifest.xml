@@ -7,6 +7,12 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+
+
     <permission
         android:name=" android.permission.BLUETOOTH"
         android:label="BLUETOOTH" />
@@ -14,6 +20,7 @@
     <permission android:name=" android.permission.ACCESS_FINE_LOCATION" />
     <permission android:name=" android.permission.ACCESS_COARSE_LOCATION" />
     <permission android:name=" android.permission.INTERNET" />
+
 
 
     <application
@@ -33,10 +40,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".GatewayActivity" />
         <activity android:name=".sshActivity" />
         <activity android:name=".MenuGateway" />
         <activity android:name=".MQTTActivity" />
+        <activity android:name=".GatewayActivity_2" />
+        <activity android:name=".SSHCONECT" />
+
     </application>
 
 </manifest>
