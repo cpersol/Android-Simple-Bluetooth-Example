@@ -32,7 +32,7 @@ public class sshActivity extends AppCompatActivity {
     Button enviarComando;
     EditText comandoAEnviar;
     Button desconectarSSH;
-    SSHConnection sshConnection;
+
     ClientSession session ;
     SshClient client;
 

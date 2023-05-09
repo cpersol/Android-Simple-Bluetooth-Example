@@ -124,38 +124,6 @@
             android:textStyle="bold"/>
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="30dp"
-            android:text="COMANDO:"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            />
-
-        <EditText
-            android:id="@+id/CommandField"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="50dp"
-            android:ems="20"
-            android:hint="Comando"
-            android:inputType="textPersonName" />
-
-        <Button
-            android:id="@+id/ButtonComando"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/buttom_rounded"
-            android:hint="ENVIAR COMANDO"
-            android:textStyle="bold"/>
-
 
         <TextView
             android:layout_width="wrap_content"
@@ -188,6 +156,40 @@
                 android:textColor="@color/white"
                 android:layout_marginRight="10dp" />
         </ScrollView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:text="COMANDO:"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            />
+
+        <EditText
+            android:id="@+id/CommandField"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:ems="20"
+            android:hint="Comando"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/ButtonComando"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/buttom_rounded"
+            android:hint="ENVIAR COMANDO"
+            android:textStyle="bold"/>
+
 
 
         <LinearLayout

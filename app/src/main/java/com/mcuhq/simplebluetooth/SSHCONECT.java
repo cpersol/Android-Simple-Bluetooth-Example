@@ -1,13 +1,15 @@
 package com.mcuhq.simplebluetooth;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Debug;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jcraft.jsch.Channel;
@@ -28,6 +30,10 @@ public class SSHCONECT extends AppCompatActivity {
     public Toast t;
     static EditText commandText;
     static String command;
+    static TextView terminal;
+    static String outputSSH="";
+    static Button r5000;
+    static Button r8080;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,22 +42,24 @@ public class SSHCONECT extends AppCompatActivity {
         setContentView(R.layout.activity_gateway);
 
         usuario = (EditText) findViewById(R.id.UsernameField);
-
         pass = (EditText) findViewById(R.id.PasswordField);
-
         hostname = (EditText) findViewById(R.id.IpField);
-
         commandText= (EditText)findViewById(R.id.CommandField);
+        terminal= (TextView) findViewById(R.id.sshTextView);
+        r5000= (Button) findViewById(R.id.decoder5000Button);
+        r8080= (Button) findViewById(R.id.chirpstack8080Button);
+
+
+
 
         final String username = usuario.getText().toString();
-
         final String password = pass.getText().toString();
-
         final String ip = hostname.getText().toString();
 
 
         Button crearConexion= (Button) findViewById(R.id.ButtonCrearConexion);
         Button enviarComando= (Button) findViewById(R.id.ButtonComando);
+
 
 
 
@@ -70,8 +78,15 @@ public class SSHCONECT extends AppCompatActivity {
                             String password = params[1];
                             String ip = params[2];
 
-                            String r = executeRemoteCommand(username, password, ip, 22);
-                            Log.d("return",r);
+                            outputSSH = executeRemoteCommand(username, password, ip, 22);
+                            Log.d("return",outputSSH);
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    terminal.setText(outputSSH);
+                                }
+                            });
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -100,8 +115,15 @@ public class SSHCONECT extends AppCompatActivity {
                             String password = params[1];
                             String ip = params[2];
 
-                            String r = executeRemoteCommand(username, password, ip, 22);
-                            Log.d("return",r);
+                            String outputSSH = executeRemoteCommand(username, password, ip, 22);
+                            Log.d("return",outputSSH);
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    terminal.setText(outputSSH);
+                                }
+                            });
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -115,6 +137,19 @@ public class SSHCONECT extends AppCompatActivity {
 
             }
         });
+        r5000.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redireccionar5000(v);
+            }
+        });
+        r8080.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redireccionar8080(v);
+            }
+        });
+
 
     }
 
@@ -123,7 +158,7 @@ public class SSHCONECT extends AppCompatActivity {
                                               int port)
             throws Exception {
 
-        command=commandText.getText().toString();
+            command=commandText.getText().toString();
 
             username = usuario.getText().toString();
 
@@ -180,7 +215,31 @@ public class SSHCONECT extends AppCompatActivity {
             }
 
             canalssh.disconnect();
-            return baos.toString();
-        }
+
+
+         outputSSH = baos.toString();
+        terminal.post(new Runnable() {
+            public void run() {
+                terminal.setText(outputSSH);
+            }
+        });
+        return baos.toString();
+
+    }
+
+
+    public void redireccionar5000(View view) {
+        String ip=hostname.getText().toString();
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("http://" + ip + ":5000"));
+        startActivity(intent);
+    }
+
+    public void redireccionar8080(View view) {
+        String ip=hostname.getText().toString();
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("http://" + ip + ":8080"));
+        startActivity(intent);
+    }
 
     }
