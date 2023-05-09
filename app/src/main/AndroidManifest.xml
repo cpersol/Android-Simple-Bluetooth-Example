@@ -43,7 +43,6 @@
         <activity android:name=".sshActivity" />
         <activity android:name=".MenuGateway" />
         <activity android:name=".MQTTActivity" />
-        <activity android:name=".GatewayActivity_2" />
         <activity android:name=".SSHCONECT" />
 
     </application>
