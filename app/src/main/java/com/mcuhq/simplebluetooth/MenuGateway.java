@@ -3,10 +3,7 @@ package com.mcuhq.simplebluetooth;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 public class MenuGateway extends Activity {
@@ -25,7 +22,7 @@ public class MenuGateway extends Activity {
         GatewayConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MenuGateway.this, GatewayActivity.class);
+                Intent i = new Intent(MenuGateway.this, SSHCONECT.class);
                 startActivity(i);
 
             }
