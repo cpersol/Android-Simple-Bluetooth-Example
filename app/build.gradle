@@ -44,9 +44,10 @@ dependencies {
     implementation 'org.slf4j:slf4j-api:1.7.5'
     implementation 'org.slf4j:slf4j-simple:1.6.4'
     implementation 'com.jcraft:jsch:0.1.54'
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'
 
-
-
-
-
+    implementation('org.eclipse.paho:org.eclipse.paho.android.service:1.0.2') {
+        exclude module: 'support-v4'
+    }
 }
+
