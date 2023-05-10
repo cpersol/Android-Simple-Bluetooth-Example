@@ -32,7 +32,7 @@ public class MenuGateway extends Activity {
         Mqtt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MenuGateway.this, MQTTActivity.class);
+                Intent i = new Intent(MenuGateway.this, MQTTConnection.class);
                 startActivity(i);
 
             }

@@ -1,120 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GatewayActivity"
-    android:background="@color/colorAzul4"
+    tools:context=".MQTTConnection"
+    android:background="@color/colorGris2"
+    android:orientation="vertical"
     >
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorAzul4"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-154dp">
-
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="90dp"
-        android:text="MQTT CONFIG"
-        android:textColor="@color/azul900"
-        android:textSize="40dp"
-        android:textStyle="bold" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:text="TOPICS:"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        />
-
-        <EditText
-        android:id="@+id/EditTopics"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
-        android:hint="topic/test/asdas"  />
-
+        tools:ignore="MissingConstraints">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="30dp"
-            android:text="COMANDO:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="MQTT CONNECTION"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textColorHighlight="@color/black"
             android:textStyle="bold"
-            android:textSize="15dp"
-            />
-
-
-        <EditText
-            android:id="@+id/EditComandoMqtt"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="50dp"
-            android:hint="comando"  />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/buttom_rounded"
-            android:hint="ENVIAR COMANDO" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="25dp"
-            android:layout_weight="0.1"
-            android:ellipsize="end"
-            android:text="TERMINAL:"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="165dp"
-            android:background="@color/black"
-            android:layout_marginTop="5dp"
-            android:textColor="@color/white"
-            android:orientation="horizontal"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp">
-
-            <TextView
-                android:id="@+id/MqttTerminal"
-                android:background="@color/black"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:textColor="@color/white"
-                android:layout_marginRight="10dp" />
-        </ScrollView>
-
-
+            android:gravity="center"/>
 
     </LinearLayout>
-</ScrollView>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="211dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="224dp"
+        android:background="@drawable/button_black_rounded"
+        android:onClick="published"
+        android:text="PUBLISH"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/subText"
+        android:layout_width="347dp"
+        android:layout_height="290dp"
+        android:layout_marginTop="404dp"
+        android:text="TextView"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/connBtn"
+        android:layout_width="128dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="132dp"
+        android:background="@drawable/button_black_rounded"
+        android:onClick="conn"
+        android:text="connect"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/disconnBtn"
+        android:layout_width="128dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="132dp"
+        android:background="@drawable/button_black_rounded"
+        android:onClick="disconn"
+        android:text="disconnect"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.748"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
