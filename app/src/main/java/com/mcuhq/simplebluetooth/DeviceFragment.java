@@ -1,4 +1,4 @@
- package com.mcuhq.simplebluetooth;
+ /*package com.mcuhq.simplebluetooth;
 
 import android.Manifest;
 import android.app.Activity;
@@ -255,3 +255,4 @@ public class DeviceFragment extends Fragment {
             }
 
 
+*/
