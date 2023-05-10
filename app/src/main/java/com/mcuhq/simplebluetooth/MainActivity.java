@@ -1,46 +1,13 @@
 package com.mcuhq.simplebluetooth;
 
-import static android.app.PendingIntent.getActivity;
-import static com.mcuhq.simplebluetooth.R.id.imageView;
-
-import android.Manifest;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothSocket;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Method;
-import java.nio.charset.StandardCharsets;
-import java.util.Set;
-import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
     private ImageView imageView;
@@ -50,16 +17,13 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabActivity tabActivity;
     private ArrayAdapter<String> mBTArrayAdapter;
-    private DeviceFragment mDeviceFragment;
+   // private DeviceFragment mDeviceFragment;
     public String infoGeneric;
     public String infoDevice;
     public Headers headers = new Headers();
-    private IboxFragment iboxFragment;
     private GenericFragment genericFragment;
-    private StaFragment staFragment;
-    private DeviceFragment deviceFragment;
     private BluetoothFragment bluetoothFragment;
-    private BoilerFragment boilerFragment;
+
     private static MainActivity instance;
 
     private final static String TYPE_IBOX = "IBOX";
@@ -90,9 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setUpViewPagerAdapter(){
-        iboxFragment = new IboxFragment();
-        boilerFragment = new BoilerFragment();
-        staFragment = new StaFragment();
         bluetoothFragment = new BluetoothFragment();
         genericFragment = new GenericFragment();
       //  deviceFragment = new DeviceFragment();
