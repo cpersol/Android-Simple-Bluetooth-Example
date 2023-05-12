@@ -3,6 +3,7 @@ package com.mcuhq.simplebluetooth;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,11 +20,17 @@ public class MQTTConnection extends AppCompatActivity {
 
     MqttAndroidClient client;
     TextView subText;
-
+    EditText topinS;
+    EditText topinP;
+    EditText msg;
+    String topinSuscribe;
+    String topinPublish;
+    String mensaje;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mqtt);
+        setContentView(R.layout.activity_mqtt1);
 
         subText = findViewById(R.id.subText);
 
@@ -70,9 +77,16 @@ public class MQTTConnection extends AppCompatActivity {
     }
 
     public void published(View v){
+        //String topic = "topictesting";
+        //String message = "HOLA SOY CARLOTA";
+        topinP=findViewById(R.id.topinPublish);
+        topinPublish=topinP.getText().toString();
+        msg= findViewById(R.id.msg);
+        mensaje=msg.getText().toString();
 
-        String topic = "topictesting";
-        String message = "HOLA SOY CARLOTA";
+
+        String topic= topinPublish;
+        String message = mensaje;
         try {
             client.publish(topic, message.getBytes(),0,false);
             Toast.makeText(this,"Published Message",Toast.LENGTH_SHORT).show();
@@ -80,12 +94,14 @@ public class MQTTConnection extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
+ //TODO: topin pra suscribirse debería ser fijo (borrar textview+tostring)PREG A BUCHU
     private void setSubscription(){
+        topinS=findViewById(R.id.topinSuscribe);
+        topinSuscribe= topinS.getText().toString();
 
         try{
 
-            client.subscribe("topictesting",0);
+            client.subscribe("topintesting",0);
 
 
         }catch (MqttException e){
