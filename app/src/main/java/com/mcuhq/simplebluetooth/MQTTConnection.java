@@ -38,12 +38,20 @@ public class MQTTConnection extends AppCompatActivity {
     String topicSuscribe;
     String topicPublish;
     String mensaje;
-    String brokerUrl = "ssl://gesinen.es:8882";
-    String username = "gesinen";
-    String password = "gesinen2110";
+    String brokerUrl ;
+    String username ;
+    String password ;
     String clientId = MqttClient.generateClientId();
     Button anotherServer;
     LinearLayout llContenido;
+    EditText newBrokerPort;
+    EditText newUsername;
+    EditText newPassword;
+    Button anotherConnection;
+    Button connect;
+    String NewBrokerPort;
+    String NewUsername;
+    String NewPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,58 +60,107 @@ public class MQTTConnection extends AppCompatActivity {
         subText = findViewById(R.id.subText);
         anotherServer=findViewById(R.id.btnAnotherServer);
         llContenido = findViewById(R.id.llContenido);
+        newBrokerPort = findViewById(R.id.newBroker);
+        newUsername = findViewById(R.id.newUsername);
+        newPassword = findViewById(R.id.newPassword);
+        anotherConnection = findViewById(R.id.connectAnotherServer);
+        connect = findViewById(R.id.connBtn);
+        topicS=findViewById(R.id.topicSuscribe);
+
 
        // String clientId = MqttClient.generateClientId();
       // client = new MqttAndroidClient(this.getApplicationContext(), "tcp://broker.mqttdashboard.com:1883",clientId);
         //client = new MqttAndroidClient(this.getApplicationContext(), "tcp://192.168.43.41:1883",clientId);
-        client = new MqttAndroidClient(this.getApplicationContext(), brokerUrl, clientId);
-        MqttConnectOptions options = new MqttConnectOptions();
-        options.setUserName(username);
-        options.setPassword(password.toCharArray());
+      //  client = new MqttAndroidClient(this.getApplicationContext(), brokerUrl, clientId);
+      //  MqttConnectOptions options = new MqttConnectOptions();
+       // options.setUserName(username);
+        //options.setPassword(password.toCharArray());
 
         // Configuración de SSL/TLS
-        try {
+     /*   try {
             SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
             sslContext.init(null, getTrustManagers(), null);
             SSLSocketFactory socketFactory = sslContext.getSocketFactory();
             options.setSocketFactory(socketFactory);
         } catch (Exception e) {
             e.printStackTrace();
-        }
-
-        try {
-            IMqttToken token = client.connect(options);
-            token.setActionCallback(new IMqttActionListener() {
-                @Override
-                public void onSuccess(IMqttToken asyncActionToken) {
-                    Toast.makeText(MQTTConnection.this,"connected!!",Toast.LENGTH_LONG).show();
-                    setSubscription();
-
-                }
-
-                @Override
-                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                    Toast.makeText(MQTTConnection.this,"connection failed!!",Toast.LENGTH_LONG).show();
-                }
-            });
-        } catch (MqttException e) {
-            e.printStackTrace();
-        }
-
-        client.setCallback(new MqttCallback() {
+        }*/
+        connect.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void connectionLost(Throwable cause) {
-
+            public void onClick(View v) {
+                username="gesinen";
+                password="gesinen2110";
+                brokerUrl="ssl://gesinen.es:8882";
+                client = new MqttAndroidClient(MQTTConnection.this, brokerUrl, clientId);
+                MqttConnectOptions options = new MqttConnectOptions();
+                options.setUserName(username);
+                options.setPassword(password.toCharArray());
+                // Configuración de SSL/TLS
+                try {
+                    SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
+                    sslContext.init(null, getTrustManagers(), null);
+                    SSLSocketFactory socketFactory = sslContext.getSocketFactory();
+                    options.setSocketFactory(socketFactory);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }client.setCallback(new MqttCallback() {
+                    @Override
+                    public void connectionLost(Throwable cause) {
+                    }
+                    @Override
+                    public void messageArrived(String topic, MqttMessage message) throws Exception {
+                        subText.setText(new String(message.getPayload()));
+                    }
+                    @Override
+                    public void deliveryComplete(IMqttDeliveryToken token) {
+                    }
+                });
+                conn(v,options);
             }
-
+        });
+        anotherConnection.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void messageArrived(String topic, MqttMessage message) throws Exception {
-                subText.setText(new String(message.getPayload()));
+            public void onClick(View v) {
+                 NewBrokerPort=newBrokerPort.getText().toString();
+                 NewUsername=newUsername.getText().toString();
+                 NewPassword=newPassword.getText().toString();
+                client = new MqttAndroidClient(MQTTConnection.this, NewBrokerPort, clientId);
+                MqttConnectOptions options = new MqttConnectOptions();
+                options.setUserName(NewUsername);
+                options.setPassword(NewPassword.toCharArray());
+                conn(v,options); // Llama al método conn(View v) cuando se presione el botón
+                // Configuración de SSL/TLS
+                try {
+                    SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
+                    sslContext.init(null, getTrustManagers(), null);
+                    SSLSocketFactory socketFactory = sslContext.getSocketFactory();
+                    options.setSocketFactory(socketFactory);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }client.setCallback(new MqttCallback() {
+                    @Override
+                    public void connectionLost(Throwable cause) {
+                    }
+                    @Override
+                    public void messageArrived(String topic, MqttMessage message) throws Exception {
+                        subText.setText(new String(message.getPayload()));
+                    }
+                    @Override
+                    public void deliveryComplete(IMqttDeliveryToken token) {
+                    }
+                });
+                conn(v,options);
             }
+        });
 
+        anotherServer.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void deliveryComplete(IMqttDeliveryToken token) {
-
+            public void onClick(View v) {
+                if (llContenido.getVisibility() == View.VISIBLE) {
+                    llContenido.setVisibility(View.GONE);
+                } else {
+                    llContenido.setVisibility(View.VISIBLE);
+                }
             }
         });
 
@@ -141,12 +198,9 @@ public class MQTTConnection extends AppCompatActivity {
         }
     }
 
-    public void conn(View v){
+    public void conn(View v,MqttConnectOptions options){
 
         try {
-            MqttConnectOptions options = new MqttConnectOptions();
-            options.setUserName(username);
-            options.setPassword(password.toCharArray());
             IMqttToken token = client.connect(options);
             Log.d("connection",clientId);
             token.setActionCallback(new IMqttActionListener() {
@@ -190,28 +244,6 @@ public class MQTTConnection extends AppCompatActivity {
         }
     }
 
-   /* private TrustManager[] getTrustManagers() {
-        try {
-            // Cargar el certificado del servidor desde un archivo (por ejemplo, en formato PEM)
-            CertificateFactory cf = CertificateFactory.getInstance("X.509");
-            InputStream certInputStream = getResources().openRawResource(R.raw.server_certificate); // Coloca el certificado en la carpeta "res/raw"
-            Certificate cert = cf.generateCertificate(certInputStream);
-
-            // Crear un almacén de claves y agregar el certificado
-            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-            keyStore.load(null);
-            keyStore.setCertificateEntry("server", cert);
-
-            // Crear un administrador de confianza y agregar el almacén de claves
-            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-            tmf.init(keyStore);
-
-            return tmf.getTrustManagers();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }*/
    private TrustManager[] getTrustManagers() {
        try {
            // Crear un administrador de confianza personalizado
