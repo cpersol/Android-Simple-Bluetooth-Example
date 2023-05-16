@@ -70,10 +70,83 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/btnAnotherServer"
+            android:layout_width="300dp"
+            android:layout_height="42dp"
+            android:text="CONNECT WITH ANOTHER SERVER"
+            android:background="@drawable/button_black_rounded"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"/>
+
+        <LinearLayout
+            android:id="@+id/llContenido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="20dp"
+                android:text="BROKER ADRESS"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/newBroker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="USERNAME"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                />
+
+            <EditText
+                android:id="@+id/newUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="PASSWORD"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                />
+
+            <EditText
+                android:id="@+id/newPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+
+
+        </LinearLayout>
+
+        <Button
             android:id="@+id/button1"
             android:layout_width="211dp"
             android:layout_height="42dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/button_black_rounded"
             android:onClick="published"
             android:text="PUBLISH"
@@ -87,12 +160,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="20dp"
-            android:text="TOPIN FOR SUSCRIBE"
+            android:text="TOPIC FOR SUSCRIBE"
             android:textColor="@color/black"
             android:textStyle="bold"/>
 
         <EditText
-            android:id="@+id/topinSuscribe"
+            android:id="@+id/topicSuscribe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -104,13 +177,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
-            android:text="TOPIN FOR PUBLISH"
+            android:text="TOPIC FOR PUBLISH"
             android:textColor="@color/black"
             android:textStyle="bold"
             />
 
         <EditText
-            android:id="@+id/topinPublish"
+            android:id="@+id/topicPublish"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

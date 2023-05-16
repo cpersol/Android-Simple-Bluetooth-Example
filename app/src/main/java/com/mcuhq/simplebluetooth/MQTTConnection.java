@@ -2,8 +2,11 @@ package com.mcuhq.simplebluetooth;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,33 +16,63 @@ import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 public class MQTTConnection extends AppCompatActivity {
 
     MqttAndroidClient client;
     TextView subText;
-    EditText topinS;
-    EditText topinP;
+    EditText topicS;
+    EditText topicP;
     EditText msg;
-    String topinSuscribe;
-    String topinPublish;
+    String topicSuscribe;
+    String topicPublish;
     String mensaje;
-    
+    String brokerUrl = "ssl://gesinen.es:8882";
+    String username = "gesinen";
+    String password = "gesinen2110";
+    String clientId = MqttClient.generateClientId();
+    Button anotherServer;
+    LinearLayout llContenido;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mqtt1);
 
         subText = findViewById(R.id.subText);
+        anotherServer=findViewById(R.id.btnAnotherServer);
+        llContenido = findViewById(R.id.llContenido);
 
-        String clientId = MqttClient.generateClientId();
-        client = new MqttAndroidClient(this.getApplicationContext(), "tcp://broker.mqttdashboard.com:1883",clientId);
+       // String clientId = MqttClient.generateClientId();
+      // client = new MqttAndroidClient(this.getApplicationContext(), "tcp://broker.mqttdashboard.com:1883",clientId);
         //client = new MqttAndroidClient(this.getApplicationContext(), "tcp://192.168.43.41:1883",clientId);
+        client = new MqttAndroidClient(this.getApplicationContext(), brokerUrl, clientId);
+        MqttConnectOptions options = new MqttConnectOptions();
+        options.setUserName(username);
+        options.setPassword(password.toCharArray());
+
+        // Configuración de SSL/TLS
+        try {
+            SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
+            sslContext.init(null, getTrustManagers(), null);
+            SSLSocketFactory socketFactory = sslContext.getSocketFactory();
+            options.setSocketFactory(socketFactory);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         try {
-            IMqttToken token = client.connect();
+            IMqttToken token = client.connect(options);
             token.setActionCallback(new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
@@ -79,16 +112,15 @@ public class MQTTConnection extends AppCompatActivity {
     public void published(View v){
         //String topic = "topictesting";
         //String message = "HOLA SOY CARLOTA";
-        topinP=findViewById(R.id.topinPublish);
-        topinPublish=topinP.getText().toString();
+        topicP=findViewById(R.id.topicPublish);
+        topicPublish=topicP.getText().toString();
         msg= findViewById(R.id.msg);
         mensaje=msg.getText().toString();
 
-
-        String topic= topinPublish;
-        String message = mensaje;
         try {
-            client.publish(topic, message.getBytes(),0,false);
+            client.publish(topicPublish, mensaje.getBytes(),0,false);
+
+
             Toast.makeText(this,"Published Message",Toast.LENGTH_SHORT).show();
         } catch ( MqttException e) {
             e.printStackTrace();
@@ -96,12 +128,12 @@ public class MQTTConnection extends AppCompatActivity {
     }
  //TODO: topin pra suscribirse debería ser fijo (borrar textview+tostring)PREG A BUCHU
     private void setSubscription(){
-        topinS=findViewById(R.id.topinSuscribe);
-        topinSuscribe= topinS.getText().toString();
+        //topicS=findViewById(R.id.topicSuscribe);
+        //topicSuscribe= topicS.getText().toString();
 
         try{
 
-            client.subscribe("topintesting",0);
+            client.subscribe("carlaTestApp",0);
 
 
         }catch (MqttException e){
@@ -112,7 +144,11 @@ public class MQTTConnection extends AppCompatActivity {
     public void conn(View v){
 
         try {
-            IMqttToken token = client.connect();
+            MqttConnectOptions options = new MqttConnectOptions();
+            options.setUserName(username);
+            options.setPassword(password.toCharArray());
+            IMqttToken token = client.connect(options);
+            Log.d("connection",clientId);
             token.setActionCallback(new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
@@ -153,5 +189,57 @@ public class MQTTConnection extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+   /* private TrustManager[] getTrustManagers() {
+        try {
+            // Cargar el certificado del servidor desde un archivo (por ejemplo, en formato PEM)
+            CertificateFactory cf = CertificateFactory.getInstance("X.509");
+            InputStream certInputStream = getResources().openRawResource(R.raw.server_certificate); // Coloca el certificado en la carpeta "res/raw"
+            Certificate cert = cf.generateCertificate(certInputStream);
+
+            // Crear un almacén de claves y agregar el certificado
+            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+            keyStore.load(null);
+            keyStore.setCertificateEntry("server", cert);
+
+            // Crear un administrador de confianza y agregar el almacén de claves
+            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            tmf.init(keyStore);
+
+            return tmf.getTrustManagers();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }*/
+   private TrustManager[] getTrustManagers() {
+       try {
+           // Crear un administrador de confianza personalizado
+           X509TrustManager trustManager = new X509TrustManager() {
+               @Override
+               public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                   // No es necesario implementar esta verificación en el lado del cliente
+               }
+
+               @Override
+               public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                   // Aquí puedes realizar la validación personalizada del certificado del servidor si es necesario
+                   // Por ejemplo, puedes verificar la cadena de certificados o realizar otras comprobaciones
+
+                   // Si confías en el certificado del servidor sin ninguna validación adicional, puedes omitir esta implementación
+               }
+
+               @Override
+               public X509Certificate[] getAcceptedIssuers() {
+                   return new X509Certificate[0]; // No es necesario para este caso
+               }
+           };
+
+           return new TrustManager[] { trustManager };
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+       return null;
+   }
 
 }
