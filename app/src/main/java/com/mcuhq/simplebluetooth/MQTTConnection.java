@@ -52,6 +52,7 @@ public class MQTTConnection extends AppCompatActivity {
     String NewBrokerPort;
     String NewUsername;
     String NewPassword;
+    Button suscribe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,25 +67,8 @@ public class MQTTConnection extends AppCompatActivity {
         anotherConnection = findViewById(R.id.connectAnotherServer);
         connect = findViewById(R.id.connBtn);
         topicS=findViewById(R.id.topicSuscribe);
+        suscribe=findViewById(R.id.btnSuscribe);
 
-
-       // String clientId = MqttClient.generateClientId();
-      // client = new MqttAndroidClient(this.getApplicationContext(), "tcp://broker.mqttdashboard.com:1883",clientId);
-        //client = new MqttAndroidClient(this.getApplicationContext(), "tcp://192.168.43.41:1883",clientId);
-      //  client = new MqttAndroidClient(this.getApplicationContext(), brokerUrl, clientId);
-      //  MqttConnectOptions options = new MqttConnectOptions();
-       // options.setUserName(username);
-        //options.setPassword(password.toCharArray());
-
-        // Configuración de SSL/TLS
-     /*   try {
-            SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
-            sslContext.init(null, getTrustManagers(), null);
-            SSLSocketFactory socketFactory = sslContext.getSocketFactory();
-            options.setSocketFactory(socketFactory);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
         connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -163,6 +147,14 @@ public class MQTTConnection extends AppCompatActivity {
                 }
             }
         });
+        suscribe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                topicSuscribe= topicS.getText().toString();
+                setSubscription(topicSuscribe);
+                Log.d("suscribe",topicSuscribe);
+            }
+        });
 
     }
 
@@ -184,13 +176,13 @@ public class MQTTConnection extends AppCompatActivity {
         }
     }
  //TODO: topin pra suscribirse debería ser fijo (borrar textview+tostring)PREG A BUCHU
-    private void setSubscription(){
+    private void setSubscription(String topicSubscribe){
         //topicS=findViewById(R.id.topicSuscribe);
         //topicSuscribe= topicS.getText().toString();
 
         try{
 
-            client.subscribe("carlaTestApp",0);
+            client.subscribe(topicSubscribe,0);
 
 
         }catch (MqttException e){
@@ -207,7 +199,7 @@ public class MQTTConnection extends AppCompatActivity {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
                     Toast.makeText(MQTTConnection.this,"connected!!",Toast.LENGTH_LONG).show();
-                    setSubscription();
+
 
                 }
 
@@ -221,6 +213,7 @@ public class MQTTConnection extends AppCompatActivity {
         }
 
     }
+
 
     public void disconn(View v){
 
