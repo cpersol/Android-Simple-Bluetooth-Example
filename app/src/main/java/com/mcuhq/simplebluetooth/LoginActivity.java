@@ -1,15 +1,12 @@
 package com.mcuhq.simplebluetooth;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-import android.support.constraint.ConstraintLayout;
-
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -38,16 +35,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username = Username.getText().toString();
                 String password = Password.getText().toString();
-
-               /* if (username.equals("admin") && password.equals("admin")) {
-                    Log.d("inicio","admin");
-                    Intent i = new Intent(LoginActivity.this, Menu.class);
-                    startActivity(i);
-                } else {
-
-                    Toast.makeText(getApplicationContext(),getString(R.string.sBTdevNF),Toast.LENGTH_SHORT).show();
-                }*/
-
                 hacerLogin(username,password);
                 Log.d("login",username);
                 Log.d("login",password);
@@ -58,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void hacerLogin(String email, String password) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        String url = "http://192.168.137.1:3000/api/V1_1/auth/signin";
+        String url = "http://82.223.152.25:3000/api/V1_1/auth/signin";
         JSONObject jsonBody = new JSONObject();
         try {
             jsonBody.put("username", email);
@@ -76,6 +63,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (response.has("accessToken")) {
                         accessToken = response.getString("accessToken");
+
                         Log.d("accessToken","accessToken");
                         Intent i = new Intent(LoginActivity.this, Menu.class);
                         startActivity(i);

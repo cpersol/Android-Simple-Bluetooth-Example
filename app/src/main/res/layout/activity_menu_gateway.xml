@@ -15,13 +15,13 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/GatewayConfigButton"
+            android:id="@+id/SshButton"
             android:layout_width="235dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/buttom_menu"
-            android:text="GATEWAY CONFIG"
+            android:text="SSH"
             android:textSize="18dp" />
 
         <Button

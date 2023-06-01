@@ -26,9 +26,9 @@
             android:layout_marginTop="50dp"
             android:gravity="center"
             android:text="MQTT CONNECTION"
-            android:textColor="@color/black"
-            android:textColorHighlight="@color/black"
-            android:textSize="30dp"
+            android:textColor="@color/azul900"
+            android:textColorHighlight="@color/azul900"
+            android:textSize="35dp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -82,7 +82,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="gone"
+
+          >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

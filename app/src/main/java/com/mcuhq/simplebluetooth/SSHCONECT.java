@@ -39,7 +39,7 @@ public class SSHCONECT extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_gateway);
+        setContentView(R.layout.activity_ssh);
 
         usuario = (EditText) findViewById(R.id.UsernameField);
         pass = (EditText) findViewById(R.id.PasswordField);

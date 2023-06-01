@@ -1,4 +1,4 @@
-package com.mcuhq.simplebluetooth;
+/*package com.mcuhq.simplebluetooth;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -120,3 +120,4 @@ public class sshActivity extends AppCompatActivity {
         }
     }
 }
+*/

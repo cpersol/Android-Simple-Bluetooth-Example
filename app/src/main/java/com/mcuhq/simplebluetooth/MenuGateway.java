@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MenuGateway extends Activity {
-    private Button GatewayConfig;
+    private Button Ssh;
     private Button Mqtt;
 
     @Override
@@ -15,11 +15,11 @@ public class MenuGateway extends Activity {
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_menu_gateway);
 
-        GatewayConfig=(Button)findViewById(R.id.GatewayConfigButton);
+        Ssh=(Button)findViewById(R.id.SshButton);
         Mqtt=(Button)findViewById(R.id.MqttButton);
 
 
-        GatewayConfig.setOnClickListener(new View.OnClickListener() {
+        Ssh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MenuGateway.this, SSHCONECT.class);

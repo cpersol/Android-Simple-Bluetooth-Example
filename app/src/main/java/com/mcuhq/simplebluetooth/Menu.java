@@ -47,27 +47,64 @@ public class Menu extends Activity {
        Plataforma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-           // irAPlataforma(AccessToken);
+            irAPlataforma(AccessToken);
 
             }
         });
 
     }
 
-    private void irAPlataforma(String accessToken) {
-        Uri uri = Uri.parse("https://swat-id.gesinen.com/#/sessions/signin");
+ /*   private void irAPlataforma(String accessToken) {
+        Uri uri = Uri.parse("https://test-platform.gesinen.com");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         Bundle extras = new Bundle();
         try {
             JSONObject json = new JSONObject();
             json.put("accessToken", accessToken);
-            String headerValue =  json.toString();
+            String headerValue =  accessToken;
             extras.putString("x-access-token", headerValue);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         intent.putExtras(extras);
         startActivity(intent);
-    }
+    }*/
+ private void irAPlataforma(String accessToken) {
+     Uri uri = Uri.parse("https://test-platform.gesinen.com");
+     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+     intent.setPackage("com.android.chrome"); // Cambia el nombre del paquete según el navegador que desees utilizar
 
+     Bundle extras = new Bundle();
+     try {
+         JSONObject json = new JSONObject();
+         json.put("accessToken", accessToken);
+         String headerValue = accessToken;
+         extras.putString("x-access-token", headerValue);
+     } catch (JSONException e) {
+         e.printStackTrace();
+     }
+
+     intent.putExtras(extras);
+
+     if (intent.resolveActivity(getPackageManager()) != null) {
+         startActivity(intent);
+     } else {
+         // No se encontró ninguna aplicación compatible, puedes mostrar un mensaje de error o manejarlo según tus necesidades
+     }
+ }
+ /*private void irAPlataforma(String accessToken) {
+     // Construye la URL de la plataforma
+     String plataformaUrl = "https://test-platform.gesinen.com";
+
+     // Agrega el AccessToken como parámetro en la URL
+     Uri.Builder builder = Uri.parse(plataformaUrl).buildUpon();
+     builder.appendQueryParameter("accessToken", accessToken);
+     Uri plataformaUri = builder.build();
+
+     // Abre la URL en un navegador externo
+     Intent intent = new Intent(Intent.ACTION_VIEW, plataformaUri);
+     startActivity(intent);
+ }*/
 }
+
