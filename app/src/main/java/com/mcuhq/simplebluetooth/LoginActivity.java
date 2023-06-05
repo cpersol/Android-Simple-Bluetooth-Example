@@ -1,6 +1,8 @@
 package com.mcuhq.simplebluetooth;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -21,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText Username;
     private EditText Password;
     private Button LoginButton;
-    public String accessToken;
+    public static String accessToken;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +64,18 @@ public class LoginActivity extends AppCompatActivity {
                         Log.d("accessToken", String.valueOf(response));
 
                     if (response.has("accessToken")) {
-                        accessToken = response.getString("accessToken");
+                        //accessToken = response.getString("accessToken");
+                        String tokens = response.toString();
+                        JSONObject tokensJson = new JSONObject(tokens);
+                        accessToken = tokensJson.getString("accessToken");
+                        // Guardar los tokens en SharedPreferences después del inicio de sesión
+                        SharedPreferences sharedPreferences = getSharedPreferences("Tokens", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("accessToken",accessToken );
+                        Log.d("accessToken", accessToken);
+                       // editor.putString("refreshToken", "tu_refresh_token");
+                        editor.apply();
+
 
                         Log.d("accessToken","accessToken");
                         Intent i = new Intent(LoginActivity.this, Menu.class);
