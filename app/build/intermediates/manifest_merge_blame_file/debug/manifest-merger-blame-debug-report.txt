@@ -1,0 +1,129 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.mcuhq.simplebluetooth"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="23" />
+9-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.BLUETOOTH" />
+11-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:5:5-68
+11-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:5:22-65
+12    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+12-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:6:5-74
+12-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:6:22-71
+13    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+13-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:7:5-79
+13-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:7:22-76
+14    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+14-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:8:5-81
+14-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:8:22-78
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:9:5-67
+15-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:9:22-64
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:10:5-79
+16-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:10:22-76
+17    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+17-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:11:5-76
+17-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:11:22-73
+18    <uses-permission android:name="android.permission.WAKE_LOCK" />
+18-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:12:5-68
+18-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:12:22-65
+19    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+19-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:13:5-75
+19-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:13:22-72
+20
+21    <permission
+21-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:17:5-19:37
+22        android:name=" android.permission.BLUETOOTH"
+22-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:18:9-53
+23        android:label="BLUETOOTH" />
+23-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:19:9-34
+24    <permission android:name=" android.permission.BLUETOOTH_ADMIN" />
+24-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:20:5-70
+24-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:20:17-67
+25    <permission android:name=" android.permission.ACCESS_FINE_LOCATION" />
+25-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:21:5-75
+25-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:21:17-72
+26    <permission android:name=" android.permission.ACCESS_COARSE_LOCATION" />
+26-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:22:5-77
+26-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:22:17-74
+27    <permission android:name=" android.permission.INTERNET" />
+27-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:23:5-63
+27-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:23:17-60
+28
+29    <application
+29-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:27:5-50:19
+30        android:allowBackup="true"
+30-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:28:9-35
+31        android:debuggable="true"
+32        android:icon="@mipmap/ic_login"
+32-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:29:9-40
+33        android:label="@string/app_name"
+33-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:30:9-41
+34        android:supportsRtl="true"
+34-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:31:9-35
+35        android:testOnly="true"
+36        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+36-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:32:9-65
+37
+38        <!--
+39            <activity
+40            android:name=".Menu"
+41            android:exported="false" />
+42        -->
+43        <activity android:name="com.mcuhq.simplebluetooth.LoginActivity" >
+43-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:36:9-42:20
+43-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:36:19-48
+44            <intent-filter>
+44-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:37:13-41:29
+45                <action android:name="android.intent.action.MAIN" />
+45-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:38:17-69
+45-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:38:25-66
+46
+47                <category android:name="android.intent.category.LAUNCHER" />
+47-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:40:17-77
+47-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:40:27-74
+48            </intent-filter>
+49        </activity>
+50        <activity android:name="com.mcuhq.simplebluetooth.MainActivity" />
+50-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:43:9-50
+50-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:43:19-47
+51        <activity android:name="com.mcuhq.simplebluetooth.Menu" />
+51-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:44:9-42
+51-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:44:19-39
+52        <activity android:name="com.mcuhq.simplebluetooth.MenuGateway" />
+52-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:45:9-49
+52-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:45:19-46
+53        <activity android:name="com.mcuhq.simplebluetooth.SSHCONECT" />
+53-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:46:9-47
+53-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:46:19-44
+54        <activity android:name="com.mcuhq.simplebluetooth.MQTTConnection" />
+54-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:47:9-52
+54-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:47:19-49
+55
+56        <service android:name="org.eclipse.paho.android.service.MqttService" >
+56-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:48:9-49:19
+56-->C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\main\AndroidManifest.xml:48:18-77
+57        </service>
+58
+59        <meta-data
+59-->[com.android.support:design:26.1.0] C:\Users\Carla\.gradle\caches\transforms-3\b7d34d95f2373d425adc8adf71b9b036\transformed\design-26.1.0\AndroidManifest.xml:26:9-28:38
+60            android:name="android.support.VERSION"
+60-->[com.android.support:design:26.1.0] C:\Users\Carla\.gradle\caches\transforms-3\b7d34d95f2373d425adc8adf71b9b036\transformed\design-26.1.0\AndroidManifest.xml:27:13-51
+61            android:value="26.1.0" />
+61-->[com.android.support:design:26.1.0] C:\Users\Carla\.gradle\caches\transforms-3\b7d34d95f2373d425adc8adf71b9b036\transformed\design-26.1.0\AndroidManifest.xml:28:13-35
+62        <meta-data
+62-->[android.arch.lifecycle:runtime:1.0.0] C:\Users\Carla\.gradle\caches\transforms-3\6e8e72b707f88f3268452ebca9956642\transformed\runtime-1.0.0\AndroidManifest.xml:25:9-27:47
+63            android:name="android.arch.lifecycle.VERSION"
+63-->[android.arch.lifecycle:runtime:1.0.0] C:\Users\Carla\.gradle\caches\transforms-3\6e8e72b707f88f3268452ebca9956642\transformed\runtime-1.0.0\AndroidManifest.xml:26:13-58
+64            android:value="27.0.0-SNAPSHOT" />
+64-->[android.arch.lifecycle:runtime:1.0.0] C:\Users\Carla\.gradle\caches\transforms-3\6e8e72b707f88f3268452ebca9956642\transformed\runtime-1.0.0\AndroidManifest.xml:27:13-44
+65    </application>
+66
+67</manifest>

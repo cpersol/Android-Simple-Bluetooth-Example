@@ -1,0 +1,318 @@
+[
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xxhdpi_ic_battery_charging_30_black_24dp.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xxhdpi\\ic_battery_charging_30_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xhdpi_ic_generic.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xhdpi\\ic_generic.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-ldpi_ic_android.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-ldpi\\ic_android.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_activity_mqtt.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\activity_mqtt.xml"
+    },
+    {
+        "merged": "com.mcuhq.simplebluetooth.app-merged_res-12:/layout_activity_menu.xml.flat",
+        "source": "com.mcuhq.simplebluetooth.app-main-14:/layout/activity_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_activity_ssh2.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\activity_ssh2.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable_buttom_rounded.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\drawable\\buttom_rounded.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xxhdpi_ic_devices.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xxhdpi\\ic_devices.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xxxhdpi_ic_devices.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xxxhdpi\\ic_devices.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_fragment_boiler.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\fragment_boiler.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-mdpi_ic_bt.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-mdpi\\ic_bt.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-anydpi-v21_ic_av_timer.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-anydpi-v21\\ic_av_timer.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xxxhdpi_ic_bt.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xxxhdpi\\ic_bt.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-mdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-ldpi_ic_generic.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-ldpi\\ic_generic.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xxxhdpi_ic_android.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xxxhdpi\\ic_android.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xhdpi_ic_devices.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xhdpi\\ic_devices.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xxxhdpi_ic_av_timer.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xxxhdpi\\ic_av_timer.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_activity_gateway.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\activity_gateway.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-ldpi_ic_battery_charging_30_black_24dp.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-ldpi\\ic_battery_charging_30_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-hdpi_ic_bt.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-hdpi\\ic_bt.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-hdpi_ic_devices.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-hdpi\\ic_devices.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_fragment_sta.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\fragment_sta.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xxhdpi_ic_av_timer.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xxhdpi\\ic_av_timer.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xxhdpi_ic_bt.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xxhdpi\\ic_bt.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xxxhdpi_ic_battery_charging_30_black_24dp.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xxxhdpi\\ic_battery_charging_30_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xhdpi_ic_bt.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xhdpi\\ic_bt.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable_button_black.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\drawable\\button_black.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-hdpi_ic_battery_charging_30_black_24dp.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-hdpi\\ic_battery_charging_30_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-mdpi_ic_av_timer.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-mdpi\\ic_av_timer.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-ldpi_ic_av_timer.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-ldpi\\ic_av_timer.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-mdpi_ic_devices.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-mdpi\\ic_devices.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-anydpi-v21_ic_battery_charging_30_black_24dp.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-anydpi-v21\\ic_battery_charging_30_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_activity_menu.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\activity_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-anydpi-v21\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable_ic_login.JPG.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\drawable\\ic_login.JPG"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-hdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_activity_mqtt1.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\activity_mqtt1.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xhdpi_ic_battery_charging_30_black_24dp.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xhdpi\\ic_battery_charging_30_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xxhdpi_ic_generic.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xxhdpi\\ic_generic.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xxxhdpi_ic_generic.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xxxhdpi\\ic_generic.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-anydpi-v21_ic_generic.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-anydpi-v21\\ic_generic.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\mipmap-hdpi_ic_login.JPG.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\mipmap-hdpi\\ic_login.JPG"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-hdpi_ic_generic.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-hdpi\\ic_generic.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-hdpi_ic_android.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-hdpi\\ic_android.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_fragment_lazos.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\fragment_lazos.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-ldpi_ic_bt.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-ldpi\\ic_bt.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-anydpi-v21_ic_devices.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-anydpi-v21\\ic_devices.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-mdpi_ic_android.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-mdpi\\ic_android.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-hdpi_ic_av_timer.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-hdpi\\ic_av_timer.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_fragment_generic.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\fragment_generic.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_fragment_device.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\fragment_device.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xxhdpi_ic_android.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xxhdpi\\ic_android.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable_button_black_rounded.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\drawable\\button_black_rounded.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_activity_gateway2.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\activity_gateway2.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xhdpi_ic_av_timer.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xhdpi\\ic_av_timer.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-ldpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable_buttom_vacio.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\drawable\\buttom_vacio.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable_buttom_menu.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\drawable\\buttom_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xhdpi_ic_android.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xhdpi\\ic_android.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-ldpi_ic_devices.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-ldpi\\ic_devices.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-mdpi_ic_generic.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-mdpi\\ic_generic.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_activity_ssh.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\activity_ssh.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_activity_menu_gateway.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\activity_menu_gateway.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-anydpi-v21_ic_android.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-anydpi-v21\\ic_android.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_fragment_bluetooth.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\fragment_bluetooth.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-anydpi-v21_ic_bt.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-anydpi-v21\\ic_bt.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-mdpi_ic_battery_charging_30_black_24dp.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-mdpi\\ic_battery_charging_30_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-pngs-7:\\drawable-xxxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\layout_fragment_ibox.xml.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\layout\\fragment_ibox.xml"
+    },
+    {
+        "merged": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-merged_res-12:\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Carla\\.gradle\\daemon\\7.3.3\\com.mcuhq.simplebluetooth.app-main-14:\\mipmap-mdpi\\ic_launcher.png"
+    }
+]

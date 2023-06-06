@@ -1,0 +1,7 @@
+com.mcuhq.simplebluetooth.test.app-androidTest-0 C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\build\generated\res\resValues\androidTest\debug
+com.mcuhq.simplebluetooth.test.app-androidTest-1 C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\build\generated\res\rs\androidTest\debug
+com.mcuhq.simplebluetooth.test.app-mergeDebugAndroidTestResources-2 C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.mcuhq.simplebluetooth.test.app-mergeDebugAndroidTestResources-3 C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.mcuhq.simplebluetooth.test.app-merged_res-4 C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\build\intermediates\merged_res\debugAndroidTest
+com.mcuhq.simplebluetooth.test.app-androidTest-5 C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\androidTest\res
+com.mcuhq.simplebluetooth.test.app-androidTestDebug-6 C:\Users\Carla\Documents\practicass\Nueva carpeta\Nueva carpeta\Android-Simple-Bluetooth-Example\app\src\androidTestDebug\res
