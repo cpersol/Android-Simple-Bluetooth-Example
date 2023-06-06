@@ -1,12 +1,9 @@
 package com.mcuhq.simplebluetooth;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.method.ScrollingMovementMethod;
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,19 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mcuhq.simplebluetooth.ProcessToSendMessage;
-
 
 public class GenericFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     private Button buttonTerminal;
     private Button buttonAppKey;
     private Button buttonDeveui;
@@ -40,26 +26,17 @@ public class GenericFragment extends Fragment {
     private EditText timeTxText;
     private EditText inputText;
     private String appkey_hexString;
-    private String appkey_base64String;
     private String deveui_hexString;
-    private String deveui_base64String;
     private String interval_intString;
-    private String interval_base64String;
     public Headers headers = new Headers();
     private String input_hexString;
     private TextView textViewAPPKEY;
     private TextView textViewDEVEUI;
     private TextView textViewINTERVAL;
     private TextView textViewINPUT;
-
-
     private TextView mTerminal;
-    private String informacionRecibida;
-    private MainActivity mainActivity;
     public String readMessage;
-    private TextView gBluetoothStatus;
-    private TextView gReadBuffer;
-    public String infoGeneric;
+
 
     public GenericFragment() {
         // Required empty public constructor
@@ -74,7 +51,6 @@ public class GenericFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_generic, container, false);
-        //MainActivity.getInstance().mConnectionBT.setActivityInMainActivity(getActivity());
         return view;
     }
 
@@ -154,7 +130,6 @@ public class GenericFragment extends Fragment {
                 MainActivity.getInstance().mConnectionBT.mConnectedThread.write(interval_intString);
                 timeTxText.setText("");
                 Toast.makeText(getActivity().getApplicationContext(), getString(R.string.sent), Toast.LENGTH_SHORT).show();
-                //textViewINTERVAL.setText(MainActivity.getInstance().mConnectionBT.errorTextHexFormat);
             }}}
         });
 

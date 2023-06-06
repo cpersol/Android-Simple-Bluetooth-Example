@@ -29,7 +29,6 @@ public class Menu extends Activity {
          LoginActivity loginActivity= new LoginActivity();
          accessToken=loginActivity.accessToken;
          Log.d("accesToken_menu",accessToken);
-        webView = findViewById(R.id.webView);
 
         //authorizationHeader = "Bearer " + accessToken;
         Sensores.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +53,7 @@ public class Menu extends Activity {
        Plataforma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            irAPlataforma(accessToken);
+           // irAPlataforma(accessToken);
 
 
             }

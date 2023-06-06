@@ -37,10 +37,6 @@ public class BluetoothFragment extends Fragment  {
 
     public final static int MESSAGE_READ = 2; // used in bluetooth handler to identify message update
     private final static int CONNECTING_STATUS = 3; // used in bluetooth handler to identify message status
-    public static final int RESULT_OK = -1;
-    private final static String TYPE_IBOX = "IBOX";
-    private final static String TYPE_STA = "STA";
-    private final static String TYPE_BOILER = "BOILER";
     public static String readMessage = null;
     // GUI Components
     private TextView mBluetoothStatus;
@@ -66,10 +62,7 @@ public class BluetoothFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_bluetooth, container, false);
-       // MainActivity.getInstance().mConnectionBT.setActivityInMainActivity(getActivity());
-
         return view;
     }
 
@@ -123,11 +116,6 @@ public class BluetoothFragment extends Fragment  {
                 public void onClick(View v){
                     if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null) //First check to make sure thread created
                         MainActivity.getInstance().mConnectionBT.mConnectedThread.write("CARLA");
-                   /* if(MainActivity.getInstance().mConnectionBT.mConnectedThread != null){//First check to make sure thread created
-                        infoGeneric = headers.GET_GENERIC_INFO + headers.GET_GENERIC_DATA;
-                        String infoGeneric_base64String=ProcessToSendMessage.hexToBase64(infoGeneric);
-                        MainActivity.getInstance().mConnectionBT.mConnectedThread.write(infoGeneric_base64String);
-                    }*/
                 }
             });
 
@@ -188,12 +176,10 @@ public class BluetoothFragment extends Fragment  {
                 return;
             }
 
-            // Get the device MAC address, which is the last 17 chars in the View
             String info = ((TextView) view).getText().toString();
             final String address = info.substring(info.length() - 17);
             final String name = info.substring(0,info.length() - 17);
 
-            // Spawn a new thread to avoid blocking the GUI one
             new Thread()
             {
                 @Override

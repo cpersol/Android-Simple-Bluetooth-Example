@@ -6,7 +6,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,10 +15,8 @@ public class MainActivity extends AppCompatActivity {
     private AppBarLayout appBarLayout;
     private ViewPager viewPager;
     private TabActivity tabActivity;
-    private ArrayAdapter<String> mBTArrayAdapter;
    // private DeviceFragment mDeviceFragment;
     public String infoGeneric;
-    public String infoDevice;
     public Headers headers = new Headers();
     private GenericFragment genericFragment;
     private BluetoothFragment bluetoothFragment;

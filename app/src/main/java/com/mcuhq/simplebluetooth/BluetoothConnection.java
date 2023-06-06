@@ -43,29 +43,18 @@ public class BluetoothConnection {
     private final static int CONNECTING_STATUS = 3;
     public static final int RESULT_OK = -1;
     private final String TAG = MainActivity.class.getSimpleName();
-
     private static TextView BluetoothStatus;
     private static TextView BluetoothBufferTextView;
     public static BluetoothAdapter bluetoothAdapter;
     private static Set<BluetoothDevice> pairedDevices;
     private static ArrayAdapter<String> arrayAdapter;
-   // private Handler handler;
-
     public BluetoothSocket bluetoothSocket= null;
-    private TextView ReadBuffer;
-    public static String readMessage = null;
     private static Context context;
-    private TextView textView;
-    private TextView readBuffer;
-
-    private TabLayout tabLayout;
-    private View view;
     public static String lastMessage;
 
     private final static String TYPE_IBOX = "IBOX";
     private final static String TYPE_STA = "STA";
     private final static String TYPE_BOILER = "BOILER";
-    private MainActivity mainActivity;
     private Activity activity;
     protected Handler mHandler; // Our main handler that will receive callback notifications
     public ConnectedThread mConnectedThread; // bluetooth background worker thread to send and receive data
@@ -108,12 +97,8 @@ public class BluetoothConnection {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent Data){
-        // Check which request we're responding to
         if (requestCode == REQUEST_ENABLE_BT) {
-            // Make sure the request was successful
             if (resultCode == RESULT_OK) {
-                // The user picked a contact.
-                // The Intent's data Uri identifies which contact was selected.
                 BluetoothStatus.setText(context.getString(R.string.sEnabled));
             }
             else
@@ -123,48 +108,41 @@ public class BluetoothConnection {
 
     public boolean bluetoothOff(){
         if (bluetoothAdapter.isEnabled()){
-        bluetoothAdapter.disable(); // turn off
-            // BluetoothStatus.setText(activity.getString(R.string.sBTdisabl));
-      //  Toast.makeText(activity.getApplicationContext(),"Bluetooth turned Off", Toast.LENGTH_SHORT).show();
+        bluetoothAdapter.disable();
+        Toast.makeText(activity.getApplicationContext(),"Bluetooth turned Off", Toast.LENGTH_SHORT).show();
         return true;
         }
         return false;
     }
+
+
     public  BroadcastReceiver blReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-
             if (BluetoothDevice.ACTION_FOUND.equals(action)) {
-                // Se ha encontrado un dispositivo Bluetooth cercano
-                //   BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                // Hacer algo con el dispositivo encontrado
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                // add the name to the list
                 arrayAdapter.add(device.getName() + "\n" + device.getAddress());
                 arrayAdapter.notifyDataSetChanged();
             }
         }
     };
     public void discover(ArrayAdapter _arrayAdapter,Activity act){
-        // Check if the device is already discovering
         arrayAdapter = _arrayAdapter;
         if(bluetoothAdapter.isDiscovering()){
             bluetoothAdapter.cancelDiscovery();
-            //Toast.makeText(context.getApplicationContext(),context.getString(R.string.DisStop),Toast.LENGTH_SHORT).show();
+            Toast.makeText(context.getApplicationContext(),context.getString(R.string.DisStop),Toast.LENGTH_SHORT).show();
         }
         else{
             if(bluetoothAdapter.isEnabled()) {
                 arrayAdapter.clear(); // clear items
                 bluetoothAdapter.startDiscovery();
                 Log.d("discover","buscancando devices");
-               // act.registerReceiver(blReceiver, new IntentFilter(BluetoothDevice.ACTION_FOUND));
                 IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-//                this.activity.unregisterReceiver(blReceiver);
                 this.activity.registerReceiver(blReceiver, filter);
             }
             else{
-            //  Toast.makeText(activity.getApplicationContext(), context.getString(R.string.BTnotOn), Toast.LENGTH_SHORT).show();
+              Toast.makeText(activity.getApplicationContext(), context.getString(R.string.BTnotOn), Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -175,17 +153,13 @@ public class BluetoothConnection {
         arrayAdapter.clear();
         pairedDevices = bluetoothAdapter.getBondedDevices();
         if(bluetoothAdapter.isEnabled()) {
-            // put it's one to the adapter
-            //Log.d("pairedDevices","add arrayAdapter");
-           //for (BluetoothDevice device : pairedDevices)
-           //     arrayAdapter.add(device.getName() + "\n" + device.getAddress());
                 return true;
-    //     Toast.makeText(context.getApplicationContext(), context.getString(R.string.show_paired_devices), Toast.LENGTH_SHORT).show();
+         //Toast.makeText(context.getApplicationContext(), context.getString(R.string.show_paired_devices), Toast.LENGTH_SHORT).show();
         }
         else{
             return false;
         }
-      //     Toast.makeText(context.getApplicationContext(), context.getString(R.string.BTnotOn), Toast.LENGTH_SHORT).show();
+          //333Toast.makeText(context.getApplicationContext(), context.getString(R.string.BTnotOn), Toast.LENGTH_SHORT).show();
     }
 
 

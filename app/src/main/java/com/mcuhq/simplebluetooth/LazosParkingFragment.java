@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class LazosParkingFragment  extends Fragment {
     private Button buttonSetCurrent;
@@ -25,18 +24,6 @@ public class LazosParkingFragment  extends Fragment {
     private EditText txtC12setCurrent;
     private EditText txtC21setCurrent;
     private TextView txtGetMaxValue;
-    private EditText txtC1setReset;
-    private EditText txtC2setReset;
-    private EditText txtC12setReset;
-    private EditText txtC21setReset;
-    private EditText txtC1getCurrent;
-    private EditText txtC2getCurrent;
-    private EditText txtC12getCurrent;
-    private EditText txtC21getCurrent;
-    private EditText txtC1getMaxValue;
-    private EditText txtC2getMaxValue;
-    private EditText txtC12getMaxValue;
-    private EditText txtC21getMaxValue;
 
 
     public Headers headers = new Headers();

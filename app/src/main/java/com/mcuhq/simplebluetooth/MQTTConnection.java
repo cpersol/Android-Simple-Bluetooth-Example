@@ -112,7 +112,7 @@ public class MQTTConnection extends AppCompatActivity {
                 MqttConnectOptions options = new MqttConnectOptions();
                 options.setUserName(NewUsername);
                 options.setPassword(NewPassword.toCharArray());
-                conn(v,options); // Llama al método conn(View v) cuando se presione el botón
+                conn(v,options);
                 // Configuración de SSL/TLS
                 try {
                     SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
@@ -159,8 +159,6 @@ public class MQTTConnection extends AppCompatActivity {
     }
 
     public void published(View v){
-        //String topic = "topictesting";
-        //String message = "HOLA SOY CARLOTA";
         topicP=findViewById(R.id.topicPublish);
         topicPublish=topicP.getText().toString();
         msg= findViewById(R.id.msg);
@@ -175,10 +173,9 @@ public class MQTTConnection extends AppCompatActivity {
             e.printStackTrace();
         }
     }
- //TODO: topin pra suscribirse debería ser fijo (borrar textview+tostring)PREG A BUCHU
+
     private void setSubscription(String topicSubscribe){
-        //topicS=findViewById(R.id.topicSuscribe);
-        //topicSuscribe= topicS.getText().toString();
+
 
         try{
 
@@ -239,11 +236,9 @@ public class MQTTConnection extends AppCompatActivity {
 
    private TrustManager[] getTrustManagers() {
        try {
-           // Crear un administrador de confianza personalizado
            X509TrustManager trustManager = new X509TrustManager() {
                @Override
                public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
-                   // No es necesario implementar esta verificación en el lado del cliente
                }
 
                @Override

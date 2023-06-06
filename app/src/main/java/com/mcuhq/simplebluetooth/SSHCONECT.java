@@ -159,13 +159,9 @@ public class SSHCONECT extends AppCompatActivity {
             throws Exception {
 
             command=commandText.getText().toString();
-
             username = usuario.getText().toString();
-
             password = pass.getText().toString();
-
             ip = hostname.getText().toString();
-
             port = 22;
 
             jsch = new JSch();
@@ -208,8 +204,6 @@ public class SSHCONECT extends AppCompatActivity {
 
             canalssh.connect(5000);
 
-            // canalssh.disconnect();
-            // canalssh.getOutputStream();
             while (!canalssh.isClosed()) {
                 Thread.sleep(1000);
             }
